@@ -220,7 +220,7 @@ function renderCard(dateId, perfData) {
     li.innerHTML = `
       <span class="num">${song.num}.</span>
       <span class="item-text">${song.title}</span>
-      <span class="timestamp">${song.timestamp}</span>
+      <span class="timestamp">${song.timestamp || ''}</span>
     `;
 
     // Add playing indicator
