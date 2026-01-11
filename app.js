@@ -593,7 +593,10 @@ function applyFilter(query) {
     songItems.forEach(item => {
       const li = item.closest("li");
       const songText = normalizeText(item.textContent);
-      if (songText.includes(q)) {
+      const hasVideoLink = li.hasAttribute("data-link-to");
+
+      // Only match songs that have video links
+      if (songText.includes(q) && hasVideoLink) {
         hasMatchingSong = true;
         li.classList.remove("filter-dim");
       } else {
