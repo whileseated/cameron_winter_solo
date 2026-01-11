@@ -388,6 +388,7 @@
           "num": 4,
           "title": "Drinking Age",
           "videoId": "video18",
+          "partial": true,
           "start": 0,
           "timestamp": "00:00",
           "highlight": true

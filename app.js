@@ -217,9 +217,11 @@ function renderCard(dateId, perfData) {
       li.setAttribute('data-start', song.start);
     }
 
+    const displayTitle = song.title + (song.partial ? ' (partial)' : '');
+
     li.innerHTML = `
       <span class="num">${song.num}.</span>
-      <span class="item-text">${song.title}</span>
+      <span class="item-text">${displayTitle}</span>
       <span class="timestamp">${song.timestamp || ''}</span>
     `;
 
