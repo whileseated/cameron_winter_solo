@@ -4,4 +4,4 @@
 
 ![Screenshot of cameron-winter-solo](img/xnapper.png)
 
-GPL-3.0-or-later © 2025 Michael David Murphy 
+GPL-3.0-or-later © 2026 [https://michaeldavidmurphy.com][MDM]
