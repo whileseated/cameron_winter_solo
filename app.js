@@ -45,6 +45,83 @@ const COUNTRIES = ["USA", "UK", "FR"];
 
 let isFiltering = false;
 
+// Song slug mapping for URL sharing (short identifiers)
+const SONG_SLUGS = {
+  "$0": "0",
+  "Amazing Grace": "amazing",
+  "Au Pays du Cocaine": "aupays",
+  "Can't Keep Anything": "cantkeep",
+  "Cancer Of The Skull": "cancer",
+  "Credits": "credits",
+  "David": "david",
+  "Drinking Age": "drinking",
+  "Emperor XIII In Shades": "emperor",
+  "Enemy": "enemy",
+  "I Don't Wanna": "idontwanna",
+  "I Have Waited In The Dark": "ihavewaited",
+  "I Will Let You Down": "iwilllet",
+  "If You Turn Back Now": "ifyouturn",
+  "It All Fell In The River": "itallfell",
+  "Its Been Waited For": "itsbeenwaitedfor",
+  "John Henry": "johnhenry",
+  "Long Island City Here I Come": "lic",
+  "Love Takes Miles": "lovetakes",
+  "LSD": "lsd",
+  "Nausicaa (Love Will Be Revealed)": "nausicaa",
+  "Nina + Field Of Cops": "ninafield",
+  "Noah": "noah",
+  "Please": "please",
+  "Sandbag": "sandbag",
+  "Serious World": "serious",
+  "Shenandoah": "shenandoah",
+  "Take It With You": "takeitwithyou",
+  "The Rolling Stones": "rollingstones",
+  "The Star-Spangled Banner": "thestar",
+  "Try As I May": "try",
+  "Unreleased 1": "unreleased1",
+  "Unreleased 2": "unreleased2",
+  "Vines": "vines",
+  "We're Thinking The Same Thing": "werethinking",
+  "Where's Your Love Now": "wheresyour"
+};
+
+// Reverse mapping for lookup
+const SLUG_TO_SONG = Object.fromEntries(
+  Object.entries(SONG_SLUGS).map(([song, slug]) => [slug, song])
+);
+
+// URL routing utilities
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    date: params.get('date'),
+    song: params.get('song')
+  };
+}
+
+function updateUrl(params) {
+  const url = new URL(window.location);
+  if (params.date) {
+    url.searchParams.set('date', params.date);
+    url.searchParams.delete('song');
+  } else if (params.song) {
+    url.searchParams.set('song', params.song);
+    url.searchParams.delete('date');
+  } else {
+    url.searchParams.delete('date');
+    url.searchParams.delete('song');
+  }
+  window.history.pushState({}, '', url);
+}
+
+function getSongSlug(songTitle) {
+  return SONG_SLUGS[songTitle] || null;
+}
+
+function getSongFromSlug(slug) {
+  return SLUG_TO_SONG[slug] || null;
+}
+
 // 12-step ROYGBIV rainbow spectrum
 const RAINBOW_COLORS = [
   '#FF0000', '#FF4500', '#FF8C00', '#FFD700', '#ADFF2F', '#32CD32',
@@ -487,11 +564,16 @@ function updatePlayingConnector() {
 }
 
 // Card activation
-function activateCard(cardId) {
+function activateCard(cardId, updateHistory = true) {
   const dateId = cardId.replace('card-', '');
   const perfData = performancesData.performances[dateId];
 
   if (!perfData) return;
+
+  // Update URL with date parameter
+  if (updateHistory) {
+    updateUrl({ date: dateId });
+  }
 
   // Render card if not already loaded
   let card = document.getElementById(cardId);
@@ -557,12 +639,23 @@ function getAutocompleteItems(query) {
   return results.slice(0, 10);
 }
 
-function applyFilter(query) {
+function applyFilter(query, updateHistory = true) {
   const q = normalizeText(query);
 
   if (!q) {
     clearFilter();
     return;
+  }
+
+  // Check if it's a song filter and update URL
+  if (updateHistory) {
+    const matchingSong = SONG_TITLES.find(song => normalizeText(song).includes(q));
+    if (matchingSong) {
+      const slug = getSongSlug(matchingSong);
+      if (slug) {
+        updateUrl({ song: slug });
+      }
+    }
   }
 
   const isCountryQuery = COUNTRIES.some(c => normalizeText(c) === q);
@@ -580,6 +673,9 @@ function applyFilter(query) {
 
   cards = Array.from(document.querySelectorAll(".card"));
 
+  let foundSongWithoutVideo = false;
+  let foundSongWithVideo = false;
+
   cards.forEach(card => {
     const h2 = card.querySelector("h2");
     const venueText = h2 ? normalizeText(h2.textContent) : "";
@@ -595,10 +691,16 @@ function applyFilter(query) {
       const songText = normalizeText(item.textContent);
       const hasVideoLink = li.hasAttribute("data-link-to");
 
-      // Only match songs that have video links
-      if (songText.includes(q) && hasVideoLink) {
-        hasMatchingSong = true;
-        li.classList.remove("filter-dim");
+      // Track if we found the song at all
+      if (songText.includes(q)) {
+        if (hasVideoLink) {
+          foundSongWithVideo = true;
+          hasMatchingSong = true;
+          li.classList.remove("filter-dim");
+        } else {
+          foundSongWithoutVideo = true;
+          li.classList.add("filter-dim");
+        }
       } else {
         li.classList.add("filter-dim");
       }
@@ -617,6 +719,18 @@ function applyFilter(query) {
       card.classList.add("filter-no-match");
     }
   });
+
+  // Show message if song exists but has no videos
+  const filterMessage = document.getElementById("filterMessage");
+  if (filterMessage) {
+    if (foundSongWithoutVideo && !foundSongWithVideo && !isCountryQuery) {
+      filterMessage.textContent = "The song you've searched for exists on setlists, but does not currently have a viewable or listenable performance here.";
+      filterMessage.classList.add("visible");
+    } else {
+      filterMessage.textContent = "";
+      filterMessage.classList.remove("visible");
+    }
+  }
 
   tabs.forEach(tab => {
     const cardId = tab.getAttribute("data-target");
@@ -644,6 +758,13 @@ function applyFilter(query) {
 
 function clearFilter() {
   isFiltering = false;
+
+  // Hide filter message
+  const filterMessage = document.getElementById("filterMessage");
+  if (filterMessage) {
+    filterMessage.textContent = "";
+    filterMessage.classList.remove("visible");
+  }
 
   cards = Array.from(document.querySelectorAll(".card"));
   cards.forEach(card => {
@@ -938,11 +1059,44 @@ async function init() {
     // Load footer
     loadFooter();
 
-    // Activate default card
-    activateCard("card-20251130");
+    // Handle URL routing
+    handleUrlRouting();
+
+    // Setup popstate handler for browser back/forward
+    window.addEventListener('popstate', handleUrlRouting);
 
   } catch (error) {
     console.error('Failed to load performance data:', error);
+  }
+}
+
+// Handle URL-based routing
+function handleUrlRouting() {
+  const params = getUrlParams();
+  const filterInput = document.getElementById("filterInput");
+
+  if (params.date) {
+    // Navigate to specific performance
+    const cardId = `card-${params.date}`;
+    if (performancesData.performances[params.date]) {
+      activateCard(cardId, false);
+    } else {
+      // Invalid date, fallback to default
+      activateCard("card-20251130", false);
+    }
+  } else if (params.song) {
+    // Filter by song slug
+    const songTitle = getSongFromSlug(params.song);
+    if (songTitle && filterInput) {
+      filterInput.value = songTitle;
+      applyFilter(songTitle, false);
+    } else {
+      // Invalid song slug, fallback to default
+      activateCard("card-20251130", false);
+    }
+  } else {
+    // No params, show default card
+    activateCard("card-20251130", false);
   }
 }
 

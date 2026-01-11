@@ -208,6 +208,22 @@ li.filter-dim {
   opacity: 0.3;
 }
 
+.filter-message {
+  display: none;
+  padding: 12px 16px;
+  margin: 12px 0;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #856404;
+  max-width: 960px;
+}
+
+.filter-message.visible {
+  display: block;
+}
+
 .card {
   display: none;
   position: relative;
