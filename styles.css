@@ -403,8 +403,15 @@ li.playing .playing-indicator {
   font-size: 15px;
   font-weight: 100;
   color: var(--text);
-  margin: 0 0 16px 0;
+  margin: 0 0 4px 0;
   letter-spacing: -0.02em;
+}
+
+.title-note {
+  font-size: 9px;
+  color: var(--text-meta);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
 }
 
 /* SVG overlay */
