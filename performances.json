@@ -279,14 +279,6 @@
           "highlight": true
         },
         {
-          "num": 3,
-          "title": "(storytime)",
-          "videoId": "video1",
-          "start": 584,
-          "timestamp": "9:44",
-          "highlight": true
-        },
-        {
           "num": 4,
           "title": "Love Takes Miles",
           "videoId": "video1",
@@ -336,18 +328,10 @@
         },
         {
           "num": 10,
-          "title": "Amazing Grace (encore)",
+          "title": "Amazing Grace",
           "videoId": "video1",
           "start": 2712,
           "timestamp": "45:12",
-          "highlight": true
-        },
-        {
-          "num": 11,
-          "title": "Credits",
-          "videoId": "video1",
-          "start": 3015,
-          "timestamp": "50:15",
           "highlight": true
         }
       ],
