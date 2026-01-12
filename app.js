@@ -562,6 +562,11 @@ function updatePlayingConnector() {
       path.style.stroke = color;
       path.setAttribute("marker-end", `url(#arrow-rainbow-${colorIndex})`);
     }
+    // Add is-playing class to body when track is playing
+    document.body.classList.add("is-playing");
+  } else {
+    // Remove is-playing class when no track is playing
+    document.body.classList.remove("is-playing");
   }
 }
 

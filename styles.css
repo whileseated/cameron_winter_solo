@@ -447,6 +447,16 @@ svg#overlay path.connector.active {
   stroke-width: 3;
 }
 
+/* Hide non-playing connectors when any track is playing */
+body.is-playing svg#overlay path.connector:not(.playing):not(.active) {
+  display: none;
+}
+
+/* Playing connector is always visible and thicker */
+svg#overlay path.connector.playing {
+  stroke-width: 3;
+}
+
 svg#overlay path.tab-connector {
   fill: none;
   stroke: var(--line);
