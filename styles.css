@@ -235,7 +235,7 @@ li.filter-dim {
 
 .grid {
   display: grid;
-  grid-template-columns: 280px 1fr 320px;
+  grid-template-columns: 280px 1fr 370px;
   gap: 0;
   align-items: start;
 }
