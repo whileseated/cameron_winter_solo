@@ -140,7 +140,7 @@ body {
 
 .filter-container {
   position: relative;
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .filter-input {
