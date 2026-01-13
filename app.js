@@ -48,6 +48,7 @@ let isFiltering = false;
 // Lyrics file mapping (song title to hashed filename)
 const LYRICS_FILES = {
   "$0": "d0a87271.txt",
+  "Au Pays du Cocaine": "deacadfc.txt",
   "Can't Keep Anything": "a177b399.txt",
   "Cancer Of The Skull": "574b48fc.txt",
   "David": "464e07af.txt",
@@ -64,7 +65,6 @@ const LYRICS_FILES = {
   "Nausicaa (Love Will Be Revealed)": "95491dd6.txt",
   "Nina + Field Of Cops": "e2ae3045.txt",
   "Noah": "cfa36b7c.txt",
-  "Please": "deacadfc.txt",
   "Sandbag": "5a995c6b.txt",
   "Serious World": "c941a624.txt",
   "Take It With You": "3043627c.txt",
