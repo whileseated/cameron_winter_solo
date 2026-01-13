@@ -224,6 +224,87 @@ li.filter-dim {
   display: block;
 }
 
+/* Lyrics badge */
+.lyrics-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  margin-left: 0px;
+  background: var(--hl);
+  border: 1px solid var(--line-hover);
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--line-hover);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+  position: relative;
+  top: 0px;
+}
+
+.lyrics-badge:hover {
+  background: var(--line-hover);
+  color: white;
+}
+
+/* Lyrics popover */
+.lyrics-popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.lyrics-popover-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lyrics-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--text-meta);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.lyrics-close:hover {
+  background: var(--hl);
+  color: var(--text);
+}
+
+.lyrics-content {
+  padding: 24px 32px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+
 .card {
   display: none;
   position: relative;
@@ -482,6 +563,43 @@ svg#overlay path.tab-connector {
   }
   .date-tab {
     padding: 7px 10px;
+  }
+
+  /* Move filter and lyrics below legend on mobile */
+  .legend {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .filter-container {
+    order: 10;
+    width: 70%;
+    margin-left: 0;
+    margin-top: 0px;
+  }
+
+  .filter-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lyrics-badge {
+    order: 11;
+    margin-left: 6px;
+    margin-top: 4px;
+  }
+
+  /* Lyrics popover adjustments for mobile */
+  .lyrics-popover {
+    width: 95%;
+    max-height: 70vh;
+    top: 10%;
+    transform: translate(-50%, 0);
+  }
+
+  .lyrics-content {
+    padding: 16px 20px;
+    font-size: 13px;
   }
 }
 

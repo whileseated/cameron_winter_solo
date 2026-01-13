@@ -45,6 +45,36 @@ const COUNTRIES = ["USA", "UK", "FR"];
 
 let isFiltering = false;
 
+// Lyrics file mapping (song title to hashed filename)
+const LYRICS_FILES = {
+  "$0": "d0a87271.txt",
+  "Can't Keep Anything": "a177b399.txt",
+  "Cancer Of The Skull": "574b48fc.txt",
+  "David": "464e07af.txt",
+  "Drinking Age": "ba19fbc6.txt",
+  "Emperor XIII In Shades": "dc47ff68.txt",
+  "Enemy": "8c6d2118.txt",
+  "I Don't Wanna": "863d57ae.txt",
+  "I Have Waited In The Dark": "17810379.txt",
+  "I Will Let You Down": "e85a2df2.txt",
+  "If You Turn Back Now": "b9d759c6.txt",
+  "It All Fell In The River": "9d0e986a.txt",
+  "Its Been Waited For": "ac162746.txt",
+  "Love Takes Miles": "7b31b595.txt",
+  "Nausicaa (Love Will Be Revealed)": "95491dd6.txt",
+  "Nina + Field Of Cops": "e2ae3045.txt",
+  "Noah": "cfa36b7c.txt",
+  "Please": "deacadfc.txt",
+  "Sandbag": "5a995c6b.txt",
+  "Serious World": "c941a624.txt",
+  "Take It With You": "3043627c.txt",
+  "The Rolling Stones": "0e2bad2c.txt",
+  "Try As I May": "be62e27d.txt",
+  "We're Thinking The Same Thing": "b67e8ad7.txt"
+};
+
+let currentLyricsFile = null;
+
 // Song slug mapping for URL sharing (short identifiers)
 const SONG_SLUGS = {
   "$0": "0",
@@ -739,6 +769,19 @@ function applyFilter(query, updateHistory = true) {
     }
   }
 
+  // Show lyrics badge if song has lyrics file
+  const lyricsBadge = document.getElementById("lyricsBadge");
+  if (lyricsBadge) {
+    const matchingSong = SONG_TITLES.find(song => normalizeText(song).includes(q));
+    if (matchingSong && LYRICS_FILES[matchingSong]) {
+      lyricsBadge.style.display = "inline-flex";
+      currentLyricsFile = LYRICS_FILES[matchingSong];
+    } else {
+      lyricsBadge.style.display = "none";
+      currentLyricsFile = null;
+    }
+  }
+
   tabs.forEach(tab => {
     const cardId = tab.getAttribute("data-target");
     const card = document.getElementById(cardId);
@@ -771,6 +814,13 @@ function clearFilter() {
   if (filterMessage) {
     filterMessage.textContent = "";
     filterMessage.classList.remove("visible");
+  }
+
+  // Hide lyrics badge
+  const lyricsBadge = document.getElementById("lyricsBadge");
+  if (lyricsBadge) {
+    lyricsBadge.style.display = "none";
+    currentLyricsFile = null;
   }
 
   cards = Array.from(document.querySelectorAll(".card"));
@@ -993,6 +1043,46 @@ function setupEventListeners() {
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".filter-container")) {
       autocompleteList.classList.remove("visible");
+    }
+  });
+
+  // Lyrics badge and popover handlers
+  const lyricsBadge = document.getElementById("lyricsBadge");
+  const lyricsPopover = document.getElementById("lyricsPopover");
+  const lyricsClose = document.getElementById("lyricsClose");
+  const lyricsContent = document.getElementById("lyricsContent");
+
+  lyricsBadge.addEventListener("click", async () => {
+    if (!currentLyricsFile) return;
+
+    try {
+      const response = await fetch(`lyrics/${currentLyricsFile}`);
+      if (!response.ok) throw new Error("Failed to load lyrics");
+      const text = await response.text();
+      lyricsContent.textContent = text;
+      lyricsPopover.style.display = "flex";
+    } catch (error) {
+      console.error("Error loading lyrics:", error);
+      lyricsContent.textContent = "Unable to load lyrics.";
+      lyricsPopover.style.display = "flex";
+    }
+  });
+
+  lyricsClose.addEventListener("click", () => {
+    lyricsPopover.style.display = "none";
+  });
+
+  // Close popover when clicking outside
+  lyricsPopover.addEventListener("click", (e) => {
+    if (e.target === lyricsPopover) {
+      lyricsPopover.style.display = "none";
+    }
+  });
+
+  // Close popover with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lyricsPopover.style.display === "flex") {
+      lyricsPopover.style.display = "none";
     }
   });
 }
