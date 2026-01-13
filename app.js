@@ -880,7 +880,14 @@ function applyFilter(query, updateHistory = true) {
 
   // Pre-calculate matches and batch render (optimized for mobile)
   const matchingPerformances = [];
+  const MAX_MOBILE_CARDS = 15; // Limit cards on mobile to prevent crashes
+
   Object.keys(performancesData.performances).forEach(dateId => {
+    // On mobile, stop checking after we have enough matches
+    if (isMobile() && matchingPerformances.length >= MAX_MOBILE_CARDS) {
+      return;
+    }
+
     const perfData = performancesData.performances[dateId];
     const venueText = normalizeText(`${perfData.venue || ''} ${perfData.city || ''} ${perfData.state || ''} ${perfData.country || ''}`);
 
@@ -904,6 +911,7 @@ function applyFilter(query, updateHistory = true) {
   });
 
   // Batch render using DocumentFragment for better mobile performance
+  const newlyRenderedCards = [];
   if (matchingPerformances.length > 0) {
     const fragment = document.createDocumentFragment();
     const footer = document.getElementById('dynamic-footer');
@@ -911,6 +919,7 @@ function applyFilter(query, updateHistory = true) {
     matchingPerformances.forEach(({ dateId, perfData }) => {
       const card = createCardElement(dateId, perfData);
       fragment.appendChild(card);
+      newlyRenderedCards.push(card);
 
       // Register video tracks during creation
       card.querySelectorAll("li[data-link-to]").forEach(li => {
@@ -934,7 +943,8 @@ function applyFilter(query, updateHistory = true) {
     invalidateCardsCache();
   }
 
-  cards = getCards(); // Issue #6: Use cached query
+  // Get all cards (includes both pre-existing and newly rendered)
+  cards = getCards();
 
   let foundSongWithoutVideo = false;
   let foundSongWithVideo = false;
@@ -1239,23 +1249,43 @@ function setupEventListeners() {
     const query = e.target.value;
     selectedIndex = -1;
 
-    // Show autocomplete immediately (lightweight operation)
-    if (query.length >= 1) {
-      const items = getAutocompleteItems(query);
-      showAutocomplete(items);
-    } else {
+    // On mobile: disable autocomplete entirely and increase debounce
+    if (isMobile()) {
       autocompleteList.classList.remove("visible");
-    }
 
-    // Debounce the heavy filter operation to prevent mobile crashes
-    clearTimeout(filterTimeout);
-    filterTimeout = setTimeout(() => {
+      // Show visual feedback that input is being processed
+      filterInput.style.opacity = "0.6";
+
+      // Much longer debounce on mobile to prevent crashes
+      clearTimeout(filterTimeout);
+      filterTimeout = setTimeout(() => {
+        if (query.length >= 2) {  // Require 2 characters on mobile
+          applyFilter(query);
+        } else if (query.length === 0) {
+          clearFilter();
+        }
+        // Restore input opacity
+        filterInput.style.opacity = "1";
+      }, 500);  // 500ms debounce on mobile
+    } else {
+      // Desktop: show autocomplete immediately
       if (query.length >= 1) {
-        applyFilter(query);
+        const items = getAutocompleteItems(query);
+        showAutocomplete(items);
       } else {
-        clearFilter();
+        autocompleteList.classList.remove("visible");
       }
-    }, 150);  // 150ms debounce
+
+      // Desktop: shorter debounce
+      clearTimeout(filterTimeout);
+      filterTimeout = setTimeout(() => {
+        if (query.length >= 1) {
+          applyFilter(query);
+        } else {
+          clearFilter();
+        }
+      }, 150);  // 150ms debounce on desktop
+    }
   });
 
   filterInput.addEventListener("keydown", (e) => {
