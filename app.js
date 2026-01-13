@@ -47,6 +47,9 @@ let isFiltering = false;
 let filterTimeout = null;  // For debouncing filter input
 let drawScheduled = false; // For throttling draw calls
 
+// Mobile detection (disable SVG operations on mobile)
+const isMobile = () => window.innerWidth <= 768;
+
 // DOM query caching for performance
 let cachedCards = null;
 let cardsCacheValid = false;
@@ -266,13 +269,9 @@ function getListItemId(el) {
 }
 
 // Render functions
-function renderCard(dateId, perfData) {
+// Helper: Create card element without DOM insertion (for batch operations)
+function createCardElement(dateId, perfData) {
   const cardId = `card-${dateId}`;
-
-  // Check if card already exists
-  if (document.getElementById(cardId)) {
-    return document.getElementById(cardId);
-  }
 
   const card = document.createElement('div');
   card.className = 'card';
@@ -354,6 +353,19 @@ function renderCard(dateId, perfData) {
   grid.appendChild(gutter);
   grid.appendChild(videoPanel);
   card.appendChild(grid);
+
+  return card;
+}
+
+function renderCard(dateId, perfData) {
+  const cardId = `card-${dateId}`;
+
+  // Check if card already exists
+  if (document.getElementById(cardId)) {
+    return document.getElementById(cardId);
+  }
+
+  const card = createCardElement(dateId, perfData);
 
   // Insert card into DOM (before footer)
   const footer = document.getElementById('dynamic-footer');
@@ -521,6 +533,9 @@ function drawListConnectors(card, wRect) {
 }
 
 function draw() {
+  // Skip all SVG operations on mobile for performance
+  if (isMobile()) return;
+
   const wRect = wrap.getBoundingClientRect();
   svg.setAttribute("viewBox", `0 0 ${wRect.width} ${wRect.height}`);
 
@@ -634,7 +649,9 @@ function initPlayer(elementId) {
     videoId: videoId,
     playerVars: { modestbranding: 1, rel: 0 },
     events: {
-      onReady: () => setTimeout(draw, 100),
+      onReady: () => {
+        if (!isMobile()) setTimeout(draw, 100);
+      },
       onStateChange: (event) => {
         if (event.data === 1) {
           startProgressWatcher(elementId);
@@ -679,6 +696,9 @@ function destroyAllPlayers() {
 
 // Throttled draw function to prevent scroll-triggered overload
 function requestDraw() {
+  // Skip on mobile - SVG not used
+  if (isMobile()) return;
+
   if (!drawScheduled) {
     drawScheduled = true;
     requestAnimationFrame(() => {
@@ -791,11 +811,14 @@ function activateCard(cardId, updateHistory = true) {
     });
   }
 
-  requestAnimationFrame(() => {
-    draw();
-    // Single follow-up draw for layout settling (reduced from 3 timeouts)
-    setTimeout(draw, 200);
-  });
+  // Only draw SVG connectors on desktop
+  if (!isMobile()) {
+    requestAnimationFrame(() => {
+      draw();
+      // Single follow-up draw for layout settling (reduced from 3 timeouts)
+      setTimeout(draw, 200);
+    });
+  }
 }
 
 // Filter functions
@@ -855,7 +878,8 @@ function applyFilter(query, updateHistory = true) {
 
   isFiltering = true;
 
-  // Only render cards that match the filter (prevents mass DOM creation on mobile)
+  // Pre-calculate matches and batch render (optimized for mobile)
+  const matchingPerformances = [];
   Object.keys(performancesData.performances).forEach(dateId => {
     const perfData = performancesData.performances[dateId];
     const venueText = normalizeText(`${perfData.venue || ''} ${perfData.city || ''} ${perfData.state || ''} ${perfData.country || ''}`);
@@ -870,14 +894,45 @@ function applyFilter(query, updateHistory = true) {
       normalizeText(song.title).includes(q)
     );
 
-    // Only render if this card will be visible
+    // Store matching performances for batch rendering
     if (venueMatches || hasSongMatch) {
       const cardId = `card-${dateId}`;
       if (!document.getElementById(cardId)) {
-        renderCard(dateId, perfData);
+        matchingPerformances.push({ dateId, perfData });
       }
     }
   });
+
+  // Batch render using DocumentFragment for better mobile performance
+  if (matchingPerformances.length > 0) {
+    const fragment = document.createDocumentFragment();
+    const footer = document.getElementById('dynamic-footer');
+
+    matchingPerformances.forEach(({ dateId, perfData }) => {
+      const card = createCardElement(dateId, perfData);
+      fragment.appendChild(card);
+
+      // Register video tracks during creation
+      card.querySelectorAll("li[data-link-to]").forEach(li => {
+        const targetId = li.getAttribute("data-link-to").replace("#", "");
+        const start = parseInt(li.getAttribute("data-start") || "0", 10);
+        if (!videoTracks[targetId]) videoTracks[targetId] = [];
+        videoTracks[targetId].push({ start, li });
+      });
+
+      loadedCards[`card-${dateId}`] = true;
+    });
+
+    // Single DOM insertion for all cards (much faster on mobile)
+    footer.parentNode.insertBefore(fragment, footer);
+
+    // Sort video tracks once after all cards inserted
+    Object.values(videoTracks).forEach(tracks =>
+      tracks.sort((a, b) => a.start - b.start)
+    );
+
+    invalidateCardsCache();
+  }
 
   cards = getCards(); // Issue #6: Use cached query
 
@@ -974,7 +1029,10 @@ function applyFilter(query, updateHistory = true) {
     });
   }
 
-  requestAnimationFrame(draw);
+  // Only draw SVG connectors on desktop
+  if (!isMobile()) {
+    requestAnimationFrame(draw);
+  }
 }
 
 function clearFilter() {
@@ -1147,10 +1205,13 @@ function setupEventListeners() {
     if (li) li.click();
   });
 
-  const ro = new ResizeObserver(requestDraw);
-  ro.observe(wrap);
-  window.addEventListener("scroll", requestDraw, { passive: true });
-  window.addEventListener("resize", requestDraw, { passive: true }); // Issue #12: Add passive for performance
+  // Only attach SVG draw observers on desktop (not needed on mobile)
+  if (!isMobile()) {
+    const ro = new ResizeObserver(requestDraw);
+    ro.observe(wrap);
+    window.addEventListener("scroll", requestDraw, { passive: true });
+    window.addEventListener("resize", requestDraw, { passive: true }); // Issue #12: Add passive for performance
+  }
 
   // Filter/autocomplete UI
   const filterInput = document.getElementById("filterInput");
