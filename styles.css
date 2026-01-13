@@ -228,13 +228,14 @@ li.filter-dim {
 .lyrics-badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
+  padding: 3px 10px 2px 10px;
   margin-left: 0px;
   background: var(--hl);
   border: 1px solid var(--line-hover);
   border-radius: 12px;
-  font-size: 10px;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
   color: var(--line-hover);
   cursor: pointer;
   user-select: none;

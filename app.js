@@ -600,12 +600,26 @@ function updateExistingPaths(wRect) {
 // YouTube player functions
 function onYouTubeIframeAPIReady() {
   youtubeReady = true;
-  const activeCard = document.querySelector(".card.active");
-  if (activeCard) {
-    const videoPlaceholders = activeCard.querySelectorAll(".video-placeholder[data-youtube-id]");
-    videoPlaceholders.forEach(placeholder => {
-      if (placeholder.id) initPlayer(placeholder.id);
+
+  // Initialize players for filtered cards (if filtering) or active card
+  if (isFiltering) {
+    // Handle filter mode - initialize all visible filtered cards
+    const filterMatchCards = document.querySelectorAll(".card.filter-match");
+    filterMatchCards.forEach(card => {
+      const videoPlaceholders = card.querySelectorAll(".video-placeholder[data-youtube-id]");
+      videoPlaceholders.forEach(placeholder => {
+        if (placeholder.id) initPlayer(placeholder.id);
+      });
     });
+  } else {
+    // Handle single card mode
+    const activeCard = document.querySelector(".card.active");
+    if (activeCard) {
+      const videoPlaceholders = activeCard.querySelectorAll(".video-placeholder[data-youtube-id]");
+      videoPlaceholders.forEach(placeholder => {
+        if (placeholder.id) initPlayer(placeholder.id);
+      });
+    }
   }
 }
 
@@ -1004,7 +1018,7 @@ function clearFilter() {
     tab.style.opacity = "1";
   });
 
-  activateCard("card-20251130");
+  activateCard("card-20250307");
 }
 
 // Event listeners
@@ -1357,7 +1371,7 @@ function handleUrlRouting() {
       activateCard(cardId, false);
     } else {
       // Invalid date, fallback to default
-      activateCard("card-20251130", false);
+      activateCard("card-20250307", false);
     }
   } else if (params.song) {
     // Filter by song slug
@@ -1367,11 +1381,11 @@ function handleUrlRouting() {
       applyFilter(songTitle, false);
     } else {
       // Invalid song slug, fallback to default
-      activateCard("card-20251130", false);
+      activateCard("card-20250307", false);
     }
   } else {
     // No params, show default card
-    activateCard("card-20251130", false);
+    activateCard("card-20250307", false);
   }
 }
 
