@@ -44,6 +44,13 @@ let CITIES = [];
 const COUNTRIES = ["USA", "UK", "FR"];
 
 let isFiltering = false;
+let filterTimeout = null;  // For debouncing filter input
+let drawScheduled = false; // For throttling draw calls
+
+// DOM query caching for performance
+let cachedCards = null;
+let cardsCacheValid = false;
+let lastVisibleCardIds = ''; // For SVG path optimization
 
 // Lyrics file mapping (song title to hashed filename)
 const LYRICS_FILES = {
@@ -166,6 +173,56 @@ function normalizeText(text) {
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
     .trim();
+}
+
+// Cached card query helper (Issue #6)
+function getCards() {
+  if (!cardsCacheValid) {
+    cachedCards = Array.from(document.querySelectorAll(".card"));
+    cardsCacheValid = true;
+  }
+  return cachedCards;
+}
+
+function invalidateCardsCache() {
+  cardsCacheValid = false;
+  cachedCards = null;
+}
+
+// Clear videoTracks for a specific card (Issue #10)
+function clearVideoTracksForCard(card) {
+  if (!card) return;
+  card.querySelectorAll("li[data-link-to]").forEach(li => {
+    const targetId = li.getAttribute("data-link-to")?.replace("#", "");
+    if (targetId && videoTracks[targetId]) {
+      // Remove entries that reference this card's list items
+      videoTracks[targetId] = videoTracks[targetId].filter(track =>
+        !card.contains(track.li)
+      );
+      // Clean up empty arrays
+      if (videoTracks[targetId].length === 0) {
+        delete videoTracks[targetId];
+      }
+    }
+  });
+}
+
+// Clear all videoTracks (Issue #10)
+function clearAllVideoTracks() {
+  Object.keys(videoTracks).forEach(key => delete videoTracks[key]);
+}
+
+// Full cleanup for memory management (Issue #11)
+function cleanupForNavigation() {
+  // Clear playing state
+  if (currentlyPlayingLi) {
+    currentlyPlayingLi.classList.remove("playing");
+    currentlyPlayingLi = null;
+  }
+  currentlyPlayingId = null;
+
+  // Clear all progress watchers
+  Object.keys(progressIntervals).forEach(clearProgressWatcher);
 }
 
 function p(x, y) {
@@ -315,6 +372,7 @@ function renderCard(dateId, perfData) {
   );
 
   loadedCards[cardId] = true;
+  invalidateCardsCache(); // Issue #6: Invalidate cache when DOM changes
   return card;
 }
 
@@ -465,22 +523,78 @@ function drawListConnectors(card, wRect) {
 function draw() {
   const wRect = wrap.getBoundingClientRect();
   svg.setAttribute("viewBox", `0 0 ${wRect.width} ${wRect.height}`);
-  g.innerHTML = "";
 
   const visibleCards = isFiltering
     ? Array.from(document.querySelectorAll(".card.filter-match"))
     : [document.querySelector(".card.active")];
 
-  visibleCards.forEach(card => {
-    if (card) {
-      if (!isFiltering) {
-        drawTabConnector(card, wRect);
+  // Issue #7: Only clear and redraw if visible cards changed
+  const currentCardIds = visibleCards.filter(c => c).map(c => c.id).join(',');
+  const cardsChanged = lastVisibleCardIds !== currentCardIds;
+
+  if (cardsChanged) {
+    g.innerHTML = "";
+    lastVisibleCardIds = currentCardIds;
+  }
+
+  // If cards changed, do full redraw; otherwise just update positions
+  if (cardsChanged || g.children.length === 0) {
+    g.innerHTML = "";
+    visibleCards.forEach(card => {
+      if (card) {
+        if (!isFiltering) {
+          drawTabConnector(card, wRect);
+        }
+        drawListConnectors(card, wRect);
       }
-      drawListConnectors(card, wRect);
-    }
-  });
+    });
+  } else {
+    // Update existing path positions without recreating (scroll/resize case)
+    updateExistingPaths(wRect);
+  }
 
   updatePlayingConnector();
+}
+
+// Issue #7: Update existing SVG paths without recreating them
+function updateExistingPaths(wRect) {
+  const visibleCards = isFiltering
+    ? Array.from(document.querySelectorAll(".card.filter-match"))
+    : [document.querySelector(".card.active")];
+
+  visibleCards.forEach(card => {
+    if (!card) return;
+
+    // Update list connector paths
+    const targets = Array.from(card.querySelectorAll("[data-link-to]"));
+    const connectorCount = targets.length;
+    const staggerSpacing = 8;
+
+    targets.forEach((el, index) => {
+      const toSel = el.getAttribute("data-link-to");
+      const target = document.querySelector(toSel);
+      if (!target || !el.id) return;
+
+      const path = g.querySelector(`path[data-source="${el.id}"]`);
+      if (!path) return;
+
+      const a = el.getBoundingClientRect();
+      const b = target.getBoundingClientRect();
+
+      const sx = (a.right - wRect.left);
+      const sy = (a.top + a.height / 2 - wRect.top);
+      const ex = (b.left - wRect.left);
+      const ey = (b.top + b.height / 2 - wRect.top);
+
+      const baseMidX = sx + (ex - sx) * 0.5;
+      const totalWidth = (connectorCount - 1) * staggerSpacing;
+      const startOffset = -totalWidth / 2;
+      const midX = baseMidX + startOffset + (index * staggerSpacing);
+
+      const d = orthogonalRoundedPath(sx, sy, ex, ey, midX, 10);
+      path.setAttribute("d", d);
+    });
+  });
 }
 
 // YouTube player functions
@@ -534,6 +648,32 @@ function clearProgressWatcher(playerId) {
   }
 }
 
+// YouTube player cleanup to prevent memory leaks
+function destroyPlayer(elementId) {
+  if (players[elementId]) {
+    clearProgressWatcher(elementId);
+    if (players[elementId].destroy) {
+      players[elementId].destroy();
+    }
+    delete players[elementId];
+  }
+}
+
+function destroyAllPlayers() {
+  Object.keys(players).forEach(destroyPlayer);
+}
+
+// Throttled draw function to prevent scroll-triggered overload
+function requestDraw() {
+  if (!drawScheduled) {
+    drawScheduled = true;
+    requestAnimationFrame(() => {
+      draw();
+      drawScheduled = false;
+    });
+  }
+}
+
 function findTrackForTime(videoId, currentTime) {
   const tracks = videoTracks[videoId];
   if (!tracks || tracks.length === 0) return null;
@@ -563,7 +703,9 @@ function syncPlayingFromTime(videoId, currentTime) {
 }
 
 function startProgressWatcher(videoId) {
-  clearProgressWatcher(videoId);
+  // Issue #9: Clear ALL watchers first, not just this one - only one should run at a time
+  Object.keys(progressIntervals).forEach(clearProgressWatcher);
+
   const player = players[videoId];
   if (!player || !videoTracks[videoId]) return;
   progressIntervals[videoId] = setInterval(() => {
@@ -619,7 +761,7 @@ function activateCard(cardId, updateHistory = true) {
   }
 
   // Update active states
-  cards = Array.from(document.querySelectorAll(".card"));
+  cards = getCards(); // Issue #6: Use cached query
   cards.forEach(c => c.classList.remove("active"));
   card.classList.add("active");
 
@@ -637,9 +779,8 @@ function activateCard(cardId, updateHistory = true) {
 
   requestAnimationFrame(() => {
     draw();
-    setTimeout(draw, 50);
-    setTimeout(draw, 150);
-    setTimeout(draw, 300);
+    // Single follow-up draw for layout settling (reduced from 3 timeouts)
+    setTimeout(draw, 200);
   });
 }
 
@@ -700,15 +841,31 @@ function applyFilter(query, updateHistory = true) {
 
   isFiltering = true;
 
-  // Render all cards for filtering
+  // Only render cards that match the filter (prevents mass DOM creation on mobile)
   Object.keys(performancesData.performances).forEach(dateId => {
-    const cardId = `card-${dateId}`;
-    if (!document.getElementById(cardId)) {
-      renderCard(dateId, performancesData.performances[dateId]);
+    const perfData = performancesData.performances[dateId];
+    const venueText = normalizeText(`${perfData.venue || ''} ${perfData.city || ''} ${perfData.state || ''} ${perfData.country || ''}`);
+
+    // Check if venue/city matches
+    const venueMatches = isCountryQuery
+      ? countryRegex.test(venueText)
+      : venueText.includes(q);
+
+    // Check if any song matches
+    const hasSongMatch = perfData.setlist.some(song =>
+      normalizeText(song.title).includes(q)
+    );
+
+    // Only render if this card will be visible
+    if (venueMatches || hasSongMatch) {
+      const cardId = `card-${dateId}`;
+      if (!document.getElementById(cardId)) {
+        renderCard(dateId, perfData);
+      }
     }
   });
 
-  cards = Array.from(document.querySelectorAll(".card"));
+  cards = getCards(); // Issue #6: Use cached query
 
   let foundSongWithoutVideo = false;
   let foundSongWithVideo = false;
@@ -809,6 +966,18 @@ function applyFilter(query, updateHistory = true) {
 function clearFilter() {
   isFiltering = false;
 
+  // Clean up YouTube players to prevent memory leaks (Issue #2)
+  destroyAllPlayers();
+
+  // Clean up videoTracks references (Issue #10)
+  clearAllVideoTracks();
+
+  // Clean up playing state (Issue #11)
+  cleanupForNavigation();
+
+  // Reset SVG path cache so next draw does full redraw
+  lastVisibleCardIds = '';
+
   // Hide filter message
   const filterMessage = document.getElementById("filterMessage");
   if (filterMessage) {
@@ -823,7 +992,7 @@ function clearFilter() {
     currentLyricsFile = null;
   }
 
-  cards = Array.from(document.querySelectorAll(".card"));
+  cards = getCards(); // Issue #6: Use cached query
   cards.forEach(card => {
     card.classList.remove("filter-match", "filter-no-match");
     card.querySelectorAll("li").forEach(li => {
@@ -964,10 +1133,10 @@ function setupEventListeners() {
     if (li) li.click();
   });
 
-  const ro = new ResizeObserver(draw);
+  const ro = new ResizeObserver(requestDraw);
   ro.observe(wrap);
-  window.addEventListener("scroll", draw, { passive: true });
-  window.addEventListener("resize", draw);
+  window.addEventListener("scroll", requestDraw, { passive: true });
+  window.addEventListener("resize", requestDraw, { passive: true }); // Issue #12: Add passive for performance
 
   // Filter/autocomplete UI
   const filterInput = document.getElementById("filterInput");
@@ -995,14 +1164,23 @@ function setupEventListeners() {
     const query = e.target.value;
     selectedIndex = -1;
 
+    // Show autocomplete immediately (lightweight operation)
     if (query.length >= 1) {
       const items = getAutocompleteItems(query);
       showAutocomplete(items);
-      applyFilter(query);
     } else {
       autocompleteList.classList.remove("visible");
-      clearFilter();
     }
+
+    // Debounce the heavy filter operation to prevent mobile crashes
+    clearTimeout(filterTimeout);
+    filterTimeout = setTimeout(() => {
+      if (query.length >= 1) {
+        applyFilter(query);
+      } else {
+        clearFilter();
+      }
+    }, 150);  // 150ms debounce
   });
 
   filterInput.addEventListener("keydown", (e) => {
@@ -1056,7 +1234,7 @@ function setupEventListeners() {
     if (!currentLyricsFile) return;
 
     try {
-      const response = await fetch(`lyrics/${currentLyricsFile}`);
+      const response = await fetch(`assets/${currentLyricsFile}`);
       if (!response.ok) throw new Error("Failed to load lyrics");
       const text = await response.text();
       lyricsContent.textContent = text;
