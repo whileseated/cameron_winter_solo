@@ -73,6 +73,7 @@ const LYRICS_FILES = {
   "Its Been Waited For": "ac162746.txt",
   "Long Island City Here I Come": "54913d6b4.txt",
   "Love Takes Miles": "7b31b595.txt",
+  "LSD": "51a07d5e.txt",
   "Nausicaa (Love Will Be Revealed)": "95491dd6.txt",
   "Nina + Field Of Cops": "e2ae3045.txt",
   "Noah": "cfa36b7c.txt",
@@ -81,6 +82,7 @@ const LYRICS_FILES = {
   "Take It With You": "3043627c.txt",
   "The Rolling Stones": "0e2bad2c.txt",
   "Try As I May": "be62e27d.txt",
+  "Vines": "d759c673.md",
   "We're Thinking The Same Thing": "b67e8ad7.txt"
 };
 
