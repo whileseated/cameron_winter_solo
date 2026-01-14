@@ -2475,6 +2475,33 @@
           "label": "CTtD4QRriiU"
         }
       ]
+    },
+    "20260110": {
+    "date": "20260110",
+    "venue": "Artists for Aid, Shrine Auditorium",
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "USA",
+    "complete": false,
+    "mediaType": "video",
+    "disabled": false,
+    "setlist": [
+      {
+        "num": 1,
+        "title": "If You Turn Back Now",
+        "videoId": "video28",
+        "start": 0,
+        "timestamp": "0:00",
+        "highlight": true
+      }
+    ],
+    "videos": [
+      {
+        "id": "video28",
+        "youtubeId": "OyjHBl5hjwk",
+        "label": "OyjHBl5hjwk"
+      }
+    ]
     }
   }
 }
