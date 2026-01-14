@@ -393,7 +393,7 @@ function renderTabs() {
   tabStrip.innerHTML = '';
 
   // Add disabled tabs and performance tabs
-  const disabledDates = ['20240228', '20250426', '20251202'];
+  const disabledDates = ['20240228', '20250426', '20251202', '20260110'];
   const allDates = [...disabledDates, ...Object.keys(performancesData.performances)].sort();
 
   allDates.forEach(date => {
