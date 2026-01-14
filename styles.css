@@ -76,7 +76,7 @@ body {
 }
 
 .date-tab[data-complete="true"].active {
-  background: #b1dfbb;
+  background: #6bcf81;
   border-color: var(--line);
 }
 
