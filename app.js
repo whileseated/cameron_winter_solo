@@ -71,6 +71,7 @@ const LYRICS_FILES = {
   "If You Turn Back Now": "b9d759c6.txt",
   "It All Fell In The River": "9d0e986a.txt",
   "Its Been Waited For": "ac162746.txt",
+  "Long Island City Here I Come": "54913d6b4.txt",
   "Love Takes Miles": "7b31b595.txt",
   "Nausicaa (Love Will Be Revealed)": "95491dd6.txt",
   "Nina + Field Of Cops": "e2ae3045.txt",
