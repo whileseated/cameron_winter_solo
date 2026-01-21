@@ -464,6 +464,12 @@ li.playing .playing-indicator {
   background: var(--bg);
 }
 
+/* TikTok portrait aspect ratio */
+.video-placeholder-tiktok {
+  aspect-ratio: 9 / 16;
+  max-width: 280px;
+}
+
 .video-label {
   font-family: 'Source Code Pro', sans-serif;
   font-size: 10px;

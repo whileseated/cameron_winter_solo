@@ -16,6 +16,8 @@ const TAB_LOCAL_DROP = 6;
 const TAB_ARROW_EXTEND = 8;
 
 const players = {};
+const tiktokPlayers = {}; // TikTok iframe references
+const tiktokState = {}; // TikTok player state tracking {videoId: {currentTime, duration, state}}
 let youtubeReady = false;
 let currentlyPlayingId = null;
 let currentlyPlayingLi = null;
@@ -340,12 +342,26 @@ function createCardElement(dateId, perfData) {
 
     const label = document.createElement('div');
     label.className = 'video-label';
-    label.innerHTML = `<a href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank" rel="noopener">${video.label}</a>`;
 
     const placeholder = document.createElement('div');
     placeholder.id = video.id;
     placeholder.className = 'video-placeholder';
-    placeholder.setAttribute('data-youtube-id', video.youtubeId);
+
+    // Detect platform (default to youtube for backwards compatibility)
+    const platform = video.platform || 'youtube';
+
+    if (platform === 'tiktok') {
+      // TikTok video
+      label.innerHTML = `<a href="https://www.tiktok.com/@${video.label.replace('@', '')}/video/${video.tiktokId}" target="_blank" rel="noopener">${video.label}</a>`;
+      placeholder.setAttribute('data-tiktok-id', video.tiktokId);
+      placeholder.setAttribute('data-platform', 'tiktok');
+      placeholder.classList.add('video-placeholder-tiktok');
+    } else {
+      // YouTube video (default)
+      label.innerHTML = `<a href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank" rel="noopener">${video.label}</a>`;
+      placeholder.setAttribute('data-youtube-id', video.youtubeId);
+      placeholder.setAttribute('data-platform', 'youtube');
+    }
 
     wrapper.appendChild(label);
     wrapper.appendChild(placeholder);
@@ -619,7 +635,7 @@ function updateExistingPaths(wRect) {
 function onYouTubeIframeAPIReady() {
   youtubeReady = true;
 
-  // Initialize players for filtered cards (if filtering) or active card
+  // Initialize YouTube players for filtered cards (if filtering) or active card
   if (isFiltering) {
     // Handle filter mode - initialize all visible filtered cards
     const filterMatchCards = document.querySelectorAll(".card.filter-match");
@@ -695,6 +711,218 @@ function destroyPlayer(elementId) {
 
 function destroyAllPlayers() {
   Object.keys(players).forEach(destroyPlayer);
+  Object.keys(tiktokPlayers).forEach(destroyTikTokPlayer);
+}
+
+// TikTok player functions
+function initTikTokPlayer(elementId, tiktokId) {
+  if (tiktokPlayers[elementId]) return;
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  // Create TikTok iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.tiktok.com/player/v1/${tiktokId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&loop=0&autoplay=0&music_info=0&description=0&rel=0`;
+  iframe.allow = 'fullscreen';
+  iframe.style.width = '100%';
+  iframe.style.aspectRatio = '9 / 16';
+  iframe.style.border = '1px solid var(--border)';
+  iframe.style.borderRadius = '5px';
+  iframe.style.display = 'block';
+
+  // Replace placeholder with iframe
+  el.replaceWith(iframe);
+  iframe.id = elementId;
+
+  // Store reference
+  tiktokPlayers[elementId] = iframe;
+  tiktokState[elementId] = { currentTime: 0, duration: 0, state: -1 };
+
+  // Trigger redraw after iframe loads
+  iframe.onload = () => {
+    if (!isMobile()) setTimeout(draw, 100);
+  };
+}
+
+function destroyTikTokPlayer(elementId) {
+  if (tiktokPlayers[elementId]) {
+    clearProgressWatcher(elementId);
+    delete tiktokPlayers[elementId];
+    delete tiktokState[elementId];
+  }
+}
+
+// TikTok postMessage communication
+function sendTikTokMessage(elementId, type, value) {
+  const iframe = tiktokPlayers[elementId];
+  if (!iframe || !iframe.contentWindow) return;
+
+  iframe.contentWindow.postMessage({
+    type: type,
+    value: value,
+    'x-tiktok-player': true
+  }, '*');
+}
+
+function tiktokSeekTo(elementId, time) {
+  sendTikTokMessage(elementId, 'seekTo', time);
+}
+
+function tiktokPlay(elementId) {
+  sendTikTokMessage(elementId, 'play');
+}
+
+function tiktokPause(elementId) {
+  sendTikTokMessage(elementId, 'pause');
+}
+
+// TikTok event listener for postMessage
+function setupTikTokMessageListener() {
+  window.addEventListener('message', (event) => {
+    // Verify it's a TikTok player message
+    if (!event.data || !event.data['x-tiktok-player']) return;
+
+    const { type, value } = event.data;
+
+    // Find which TikTok player sent the message
+    let sourceElementId = null;
+    for (const [elementId, iframe] of Object.entries(tiktokPlayers)) {
+      if (iframe.contentWindow === event.source) {
+        sourceElementId = elementId;
+        break;
+      }
+    }
+
+    if (!sourceElementId) return;
+
+    switch (type) {
+      case 'onPlayerReady':
+        // Player is ready
+        if (!isMobile()) setTimeout(draw, 100);
+        break;
+
+      case 'onStateChange':
+        // -1=init, 0=ended, 1=playing, 2=paused, 3=buffering
+        tiktokState[sourceElementId].state = value;
+        if (value === 1) {
+          // Playing - start progress tracking
+          startTikTokProgressWatcher(sourceElementId);
+        } else if (value === 0 || value === 2) {
+          // Ended or paused
+          clearProgressWatcher(sourceElementId);
+          if (currentlyPlayingLi && currentlyPlayingId === sourceElementId) {
+            currentlyPlayingLi.classList.remove("playing");
+            currentlyPlayingLi = null;
+            currentlyPlayingId = null;
+            updatePlayingConnector();
+          }
+        }
+        break;
+
+      case 'onCurrentTime':
+        // value = {currentTime, duration}
+        if (value && typeof value.currentTime === 'number') {
+          tiktokState[sourceElementId].currentTime = value.currentTime;
+          tiktokState[sourceElementId].duration = value.duration || 0;
+          syncPlayingFromTime(sourceElementId, value.currentTime);
+        }
+        break;
+    }
+  });
+}
+
+function startTikTokProgressWatcher(elementId) {
+  // Clear all other watchers first
+  Object.keys(progressIntervals).forEach(clearProgressWatcher);
+
+  // TikTok sends onCurrentTime events automatically when playing,
+  // but we can also poll if needed
+  progressIntervals[elementId] = setInterval(() => {
+    const state = tiktokState[elementId]?.state;
+    if (state !== 1) return; // Not playing
+    // TikTok sends currentTime via postMessage, so we rely on that
+  }, POLL_INTERVAL_MS);
+}
+
+// Initialize all video players for a card (YouTube and TikTok)
+function initCardPlayers(card) {
+  // Initialize YouTube players
+  if (youtubeReady) {
+    const ytPlaceholders = card.querySelectorAll(".video-placeholder[data-youtube-id]");
+    ytPlaceholders.forEach(placeholder => {
+      if (placeholder.id) {
+        initPlayer(placeholder.id);
+      }
+    });
+  }
+
+  // Initialize TikTok players (no API to wait for)
+  const ttPlaceholders = card.querySelectorAll(".video-placeholder[data-tiktok-id]");
+  ttPlaceholders.forEach(placeholder => {
+    if (placeholder.id) {
+      const tiktokId = placeholder.getAttribute('data-tiktok-id');
+      initTikTokPlayer(placeholder.id, tiktokId);
+    }
+  });
+}
+
+// Platform-agnostic player functions
+function getPlayerPlatform(elementId) {
+  if (players[elementId]) return 'youtube';
+  if (tiktokPlayers[elementId]) return 'tiktok';
+  return null;
+}
+
+function playerSeekTo(elementId, time) {
+  const platform = getPlayerPlatform(elementId);
+  if (platform === 'youtube') {
+    const player = players[elementId];
+    if (player && player.seekTo) player.seekTo(time, true);
+  } else if (platform === 'tiktok') {
+    tiktokSeekTo(elementId, time);
+  }
+}
+
+function playerPlay(elementId) {
+  const platform = getPlayerPlatform(elementId);
+  if (platform === 'youtube') {
+    const player = players[elementId];
+    if (player && player.playVideo) player.playVideo();
+  } else if (platform === 'tiktok') {
+    tiktokPlay(elementId);
+  }
+}
+
+function playerPause(elementId) {
+  const platform = getPlayerPlatform(elementId);
+  if (platform === 'youtube') {
+    const player = players[elementId];
+    if (player && player.pauseVideo) player.pauseVideo();
+  } else if (platform === 'tiktok') {
+    tiktokPause(elementId);
+  }
+}
+
+function playerGetState(elementId) {
+  const platform = getPlayerPlatform(elementId);
+  if (platform === 'youtube') {
+    const player = players[elementId];
+    return player && player.getPlayerState ? player.getPlayerState() : -1;
+  } else if (platform === 'tiktok') {
+    return tiktokState[elementId]?.state ?? -1;
+  }
+  return -1;
+}
+
+function playerGetCurrentTime(elementId) {
+  const platform = getPlayerPlatform(elementId);
+  if (platform === 'youtube') {
+    const player = players[elementId];
+    return player && player.getCurrentTime ? player.getCurrentTime() : 0;
+  } else if (platform === 'tiktok') {
+    return tiktokState[elementId]?.currentTime ?? 0;
+  }
+  return 0;
 }
 
 // Throttled draw function to prevent scroll-triggered overload
@@ -804,15 +1032,8 @@ function activateCard(cardId, updateHistory = true) {
 
   tabs.forEach(tab => tab.classList.toggle("active", tab.getAttribute("data-target") === cardId));
 
-  // Initialize YouTube players
-  if (youtubeReady) {
-    const videoPlaceholders = card.querySelectorAll(".video-placeholder[data-youtube-id]");
-    videoPlaceholders.forEach(placeholder => {
-      if (placeholder.id) {
-        initPlayer(placeholder.id);
-      }
-    });
-  }
+  // Initialize video players (YouTube and TikTok)
+  initCardPlayers(card);
 
   // Only draw SVG connectors on desktop
   if (!isMobile()) {
@@ -1031,16 +1252,10 @@ function applyFilter(query, updateHistory = true) {
     }
   });
 
-  if (youtubeReady) {
-    document.querySelectorAll(".card.filter-match").forEach(card => {
-      const videoPlaceholders = card.querySelectorAll(".video-placeholder[data-youtube-id]");
-      videoPlaceholders.forEach(placeholder => {
-        if (placeholder.id) {
-          initPlayer(placeholder.id);
-        }
-      });
-    });
-  }
+  // Initialize all video players for filtered cards
+  document.querySelectorAll(".card.filter-match").forEach(card => {
+    initCardPlayers(card);
+  });
 
   // Only draw SVG connectors on desktop
   if (!isMobile()) {
@@ -1122,15 +1337,15 @@ function setupEventListeners() {
 
     const targetId = li.getAttribute("data-link-to").replace("#", "");
     const startTime = parseInt(li.getAttribute("data-start") || "0", 10);
-    const player = players[targetId];
+    const platform = getPlayerPlatform(targetId);
 
-    if (player && player.seekTo) {
-      const isPlaying = player.getPlayerState && player.getPlayerState() === 1;
-      const currentTime = player.getCurrentTime ? player.getCurrentTime() : 0;
+    if (platform) {
+      const isPlaying = playerGetState(targetId) === 1;
+      const currentTime = playerGetCurrentTime(targetId);
       const isNearStartTime = Math.abs(currentTime - startTime) < 5;
 
       if (isPlaying && isNearStartTime) {
-        player.pauseVideo();
+        playerPause(targetId);
         currentlyPlayingId = null;
         if (currentlyPlayingLi) {
           currentlyPlayingLi.classList.remove("playing");
@@ -1138,18 +1353,15 @@ function setupEventListeners() {
         }
         updatePlayingConnector();
       } else {
-        if (currentlyPlayingId && currentlyPlayingId !== targetId && players[currentlyPlayingId]) {
-          const prevPlayer = players[currentlyPlayingId];
-          if (prevPlayer.pauseVideo) {
-            prevPlayer.pauseVideo();
-          }
+        if (currentlyPlayingId && currentlyPlayingId !== targetId) {
+          playerPause(currentlyPlayingId);
           clearProgressWatcher(currentlyPlayingId);
         }
         if (currentlyPlayingLi) {
           currentlyPlayingLi.classList.remove("playing");
         }
-        player.seekTo(startTime, true);
-        player.playVideo();
+        playerSeekTo(targetId, startTime);
+        playerPlay(targetId);
         currentlyPlayingId = targetId;
         currentlyPlayingLi = li;
         li.classList.add("playing");
@@ -1438,6 +1650,9 @@ async function init() {
 
     // Create rainbow markers
     createRainbowMarkers();
+
+    // Setup TikTok postMessage listener
+    setupTikTokMessageListener();
 
     // Load footer
     loadFooter();

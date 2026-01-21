@@ -2482,26 +2482,104 @@
     "city": "Los Angeles",
     "state": "CA",
     "country": "USA",
-    "complete": false,
+    "complete": true,
     "mediaType": "video",
     "disabled": false,
     "setlist": [
       {
         "num": 1,
-        "title": "If You Turn Back Now (partial)",
+        "title": "If You Turn Back Now",
         "videoId": "video28",
         "start": 0,
-        "timestamp": "0:00",
+        "timestamp": "(video)",
         "highlight": true
       }
     ],
     "videos": [
       {
         "id": "video28",
-        "youtubeId": "OyjHBl5hjwk",
-        "label": "OyjHBl5hjwk"
+        "label": "@junimarin",
+        "platform": "tiktok",
+        "tiktokId": "7594225985487228190"
       }
     ]
+    },
+    "20260119": {
+      "date": "20260119",
+      "venue": "TV Eye",
+      "city": "Queens",
+      "state": "NY",
+      "country": "USA",
+      "complete": false,
+      "mediaType": "video",
+      "disabled": false,
+      "setlist": [
+        {
+          "num": 1,
+          "title": "It All Fell In The River (partial)",
+          "highlight": true,
+          "videoId": "video29a",
+          "start": 0,
+          "timestamp": "(video)"
+        },
+        {
+          "num": 2,
+          "title": "The Rolling Stones (partial)",
+          "highlight": true,
+          "videoId": "video29b",
+          "start": 0,
+          "timestamp": "(video)"
+        },
+        {
+          "num": 3,
+          "title": "Serious World",
+          "highlight": false
+        },
+        {
+          "num": 4,
+          "title": "Emperor XIII In Shades",
+          "highlight": false
+        },
+        {
+          "num": 5,
+          "title": "Love Takes Miles (partial)",
+          "highlight": true,
+          "videoId": "video29c",
+          "start": 0,
+          "timestamp": "(video)"
+        },
+        {
+          "num": 6,
+          "title": "If You Turn Back Now",
+          "highlight": false
+        },
+        {
+          "num": 7,
+          "title": "$0",
+          "highlight": false
+        }
+      ],
+      "videos": [
+        {
+          "id": "video29a",
+          "label": "@fartsplosion__69",
+          "platform": "tiktok",
+          "tiktokId": "7597512692500319519"
+        },        
+        {
+          "id": "video29b",
+          "label": "@colleedee",
+          "platform": "tiktok",
+          "tiktokId": "7597490236230241550"
+        },
+        {
+          "id": "video29c",
+          "label": "@mollsyvl",
+          "platform": "tiktok",
+          "tiktokId": "7597477870688046367"
+        }
+      ]
     }
   }
 }
+
