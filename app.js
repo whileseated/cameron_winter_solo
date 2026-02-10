@@ -14,6 +14,8 @@ const TAB_LEFT_MARGIN = 24;
 const TAB_CLEARANCE = 7;
 const TAB_LOCAL_DROP = 6;
 const TAB_ARROW_EXTEND = 8;
+const TAB_LAST_ROW_LANE_LIFT = 18;
+const TAB_LAST_ROW_CURVE_PADDING = 1;
 
 const players = {};
 const tiktokPlayers = {}; // TikTok iframe references
@@ -439,20 +441,23 @@ function renderTabs() {
 }
 
 // Drawing functions
-function drawTabConnector(card, wRect) {
+function getTabConnectorPath(card, wRect) {
   const tab = document.querySelector(`.date-tab[data-target="${card.id}"]`);
   const leftPanel = card.querySelector(".panel-left");
   const strip = document.getElementById("tabStrip");
-  if (!tab || !leftPanel) return;
+  if (!tab || !leftPanel || !strip) return null;
 
   const tabRect = tab.getBoundingClientRect();
   const leftRect = leftPanel.getBoundingClientRect();
   const stripRect = strip.getBoundingClientRect();
 
   const allTabs = Array.from(document.querySelectorAll(".date-tab"));
-  const rowBottoms = [...new Set(allTabs.map(t => Math.round(t.getBoundingClientRect().bottom)))].sort((a, b) => a - b);
-  const tabRowBottom = Math.round(tabRect.bottom);
-  const isLastRow = tabRowBottom === rowBottoms[rowBottoms.length - 1];
+  const ROW_TOLERANCE_PX = 1.5;
+  const maxTabBottom = allTabs.reduce((max, t) => {
+    const bottom = t.getBoundingClientRect().bottom;
+    return bottom > max ? bottom : max;
+  }, -Infinity);
+  const isLastRow = (maxTabBottom - tabRect.bottom) <= ROW_TOLERANCE_PX;
 
   const tabBottomY = tabRect.bottom - wRect.top;
   const sx = tabRect.left + tabRect.width / 2 - wRect.left;
@@ -461,24 +466,43 @@ function drawTabConnector(card, wRect) {
   const ex = leftRect.left + leftRect.width / 2 - wRect.left;
   const ey = leftRect.top - wRect.top + TAB_ARROW_EXTEND;
 
-  const stripClearY = stripRect.bottom - wRect.top + TAB_CLEARANCE;
+  const minClearY = tabBottomY + TAB_CURVE_RADIUS + 3;
+  const rawStripClearY = stripRect.bottom - wRect.top + TAB_CLEARANCE;
+  // Ensure enough room below the tab for the curve radius + visible drop.
+  const stripClearY = Math.max(rawStripClearY, minClearY);
 
   let d;
   if (isLastRow) {
+    const minLaneY = tabBottomY + TAB_CURVE_RADIUS + TAB_LAST_ROW_CURVE_PADDING;
+    const maxLaneY = ey - TAB_CURVE_RADIUS - TAB_LAST_ROW_CURVE_PADDING;
+    let laneY = rawStripClearY - TAB_LAST_ROW_LANE_LIFT;
+    if (maxLaneY >= minLaneY) {
+      laneY = Math.max(minLaneY, laneY);
+      laneY = Math.min(maxLaneY, laneY);
+    } else {
+      laneY = (tabBottomY + ey) / 2;
+    }
+
     const dir = ex > sx ? 1 : -1;
     const horizDist = Math.abs(ex - sx);
-    const vertDrop = ey - stripClearY;
-    const r = Math.min(TAB_CURVE_RADIUS, horizDist / 2, vertDrop / 2);
+    const vertDrop = ey - laneY;
+    const r = Math.min(
+      TAB_CURVE_RADIUS,
+      horizDist / 2,
+      vertDrop / 2,
+      laneY - tabBottomY,
+      ey - laneY
+    );
 
     if (horizDist < 2) {
       d = [`M ${p(sx, tabBottomY)}`, `L ${p(ex, ey)}`].join(" ");
     } else {
       d = [
         `M ${p(sx, tabBottomY)}`,
-        `L ${p(sx, stripClearY - r)}`,
-        `Q ${p(sx, stripClearY)} ${p(sx + dir * r, stripClearY)}`,
-        `L ${p(ex - dir * r, stripClearY)}`,
-        `Q ${p(ex, stripClearY)} ${p(ex, stripClearY + r)}`,
+        `L ${p(sx, laneY - r)}`,
+        `Q ${p(sx, laneY)} ${p(sx + dir * r, laneY)}`,
+        `L ${p(ex - dir * r, laneY)}`,
+        `Q ${p(ex, laneY)} ${p(ex, laneY + r)}`,
         `L ${p(ex, ey)}`
       ].join(" ");
     }
@@ -501,6 +525,13 @@ function drawTabConnector(card, wRect) {
       `L ${p(ex, ey)}`
     ].join(" ");
   }
+
+  return d;
+}
+
+function drawTabConnector(card, wRect) {
+  const d = getTabConnectorPath(card, wRect);
+  if (!d) return;
 
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", d);
@@ -595,6 +626,16 @@ function updateExistingPaths(wRect) {
   const visibleCards = isFiltering
     ? Array.from(document.querySelectorAll(".card.filter-match"))
     : [document.querySelector(".card.active")];
+
+  // Keep tab connector synchronized when layout shifts but active card doesn't change.
+  if (!isFiltering) {
+    const activeCard = visibleCards[0];
+    const tabPath = g.querySelector("path.tab-connector");
+    if (activeCard && tabPath) {
+      const d = getTabConnectorPath(activeCard, wRect);
+      if (d) tabPath.setAttribute("d", d);
+    }
+  }
 
   visibleCards.forEach(card => {
     if (!card) return;
@@ -1434,8 +1475,23 @@ function setupEventListeners() {
   if (!isMobile()) {
     const ro = new ResizeObserver(requestDraw);
     ro.observe(wrap);
+    const tabStrip = document.getElementById("tabStrip");
+    if (tabStrip) ro.observe(tabStrip);
     window.addEventListener("scroll", requestDraw, { passive: true });
     window.addEventListener("resize", requestDraw, { passive: true }); // Issue #12: Add passive for performance
+
+    // Font swaps can reflow wrapped tabs without triggering window resize.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(requestDraw).catch(() => {});
+      if (document.fonts.addEventListener) {
+        document.fonts.addEventListener("loadingdone", requestDraw);
+      }
+    }
+
+    window.addEventListener("load", () => {
+      requestDraw();
+      setTimeout(requestDraw, 150);
+    });
   }
 
   // Filter/autocomplete UI
