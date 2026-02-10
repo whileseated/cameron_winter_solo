@@ -2640,7 +2640,7 @@
       },
       {
         "num": 7,
-        "title": "If you turn back now",
+        "title": "If You Turn Back Now",
         "videoId": "video30",
         "start": 1657,
         "timestamp": "27:37",
@@ -2664,15 +2664,15 @@
       },
       {
         "num": 10,
-        "title": "0$ (live video)",
+        "title": "0$",
         "videoId": "video30",
         "start": 2432,
-        "timestamp": "40:32",
+        "timestamp": "(video)",
         "highlight": true
       },
       {
         "num": 11,
-        "title": "Take it with you",
+        "title": "Take It With You",
         "videoId": "video30",
         "start": 2967,
         "timestamp": "49:27",
