@@ -2579,7 +2579,121 @@
           "tiktokId": "7597477870688046367"
         }
       ]
+    },
+      "20260204": {
+        "date": "20260204",
+        "venue": "Holy Trinity Cathedral",
+        "city": "Aukland",
+        "state": "",
+        "country": "NZ",
+        "complete": true,
+        "mediaType": "audio",
+        "disabled": false,
+        "setlist": [
+      {
+        "num": 1,
+        "title": "It All Fell in the River",
+        "videoId": "video30",
+        "start": 0,
+        "timestamp": "0:00",
+        "highlight": true
+      },
+      {
+        "num": 2,
+        "title": "Try as I May",
+        "videoId": "video30",
+        "start": 282,
+        "timestamp": "4:42",
+        "highlight": true
+      },
+      {
+        "num": 3,
+        "title": "Emperor XIII in Shades",
+        "videoId": "video30",
+        "start": 614,
+        "timestamp": "10:14",
+        "highlight": true
+      },
+      {
+        "num": 4,
+        "title": "The Rolling Stones",
+        "videoId": "video30",
+        "start": 859,
+        "timestamp": "14:19",
+        "highlight": true
+      },
+      {
+        "num": 5,
+        "title": "Love Takes Miles",
+        "videoId": "video30",
+        "start": 1128,
+        "timestamp": "18:48",
+        "highlight": true
+      },
+      {
+        "num": 6,
+        "title": "Drinking Age",
+        "videoId": "video30",
+        "start": 1374,
+        "timestamp": "22:54",
+        "highlight": true
+      },
+      {
+        "num": 7,
+        "title": "If you turn back now",
+        "videoId": "video30",
+        "start": 1657,
+        "timestamp": "27:37",
+        "highlight": true
+      },
+      {
+        "num": 8,
+        "title": "Ben (debut)",
+        "videoId": "video30",
+        "start": 1969,
+        "timestamp": "32:49",
+        "highlight": true
+      },
+      {
+        "num": 9,
+        "title": "Nina + Field of Cops",
+        "videoId": "video30",
+        "start": 2046,
+        "timestamp": "34:06",
+        "highlight": true
+      },
+      {
+        "num": 10,
+        "title": "0$ (live video)",
+        "videoId": "video30",
+        "start": 2432,
+        "timestamp": "40:32",
+        "highlight": true
+      },
+      {
+        "num": 11,
+        "title": "Take it with you",
+        "videoId": "video30",
+        "start": 2967,
+        "timestamp": "49:27",
+        "highlight": true
+      },
+      {
+        "num": 12,
+        "title": "Encore - Ben (reprise), Sandbag",
+        "videoId": "video30",
+        "start": 3267,
+        "timestamp": "54:27",
+        "highlight": true
+      }
+    ],
+    "videos": [
+      {
+        "id": "video30",
+        "youtubeId": "agHrRJMSxoA",
+        "label": "agHrRJMSxoA"
+      }
+    ]
     }
   }
 }
-
