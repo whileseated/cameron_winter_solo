@@ -12,3 +12,5 @@ blank_performance_entry.json
 convert-timestamps.js
 
 ignore/*
+
+.DS_Store
