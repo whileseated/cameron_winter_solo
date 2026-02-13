@@ -2583,7 +2583,7 @@
       "20260204": {
         "date": "20260204",
         "venue": "Holy Trinity Cathedral",
-        "city": "Aukland",
+        "city": "Auckland",
         "state": "",
         "country": "NZ",
         "complete": true,
@@ -2694,6 +2694,121 @@
         "label": "agHrRJMSxoA"
       }
     ]
-    }
+    },
+    "20260209": {
+    "date": "20260209",
+    "venue": "The Forum",
+    "city": "Melbourne",
+    "state": "",
+    "country": "AUS",
+    "complete": true,
+    "mediaType": "video",
+    "disabled": false,
+    "setlist": [
+      {
+        "num": 1,
+        "title": "It All Fell In The River",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 25,
+        "timestamp": "0:25"
+      },
+      {
+        "num": 2,
+        "title": "Try As I May",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 360,
+        "timestamp": "6:00"
+      },
+      {
+        "num": 3,
+        "title": "Come Now (debut)",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 740,
+        "timestamp": "12:20"
+      },
+      {
+        "num": 4,
+        "title": "Emperor Xiii In Shades",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 1065,
+        "timestamp": "17:45"
+      },
+      {
+        "num": 5,
+        "title": "The Rolling Stones",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 1380,
+        "timestamp": "23:00"
+      },
+      {
+        "num": 6,
+        "title": "Love Takes Miles",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 1650,
+        "timestamp": "27:30"
+      },
+      {
+        "num": 7,
+        "title": "Bottle Flip",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 1910,
+        "timestamp": "31:50"
+      },
+      {
+        "num": 8,
+        "title": "Drinking Age",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 1945,
+        "timestamp": "32:25"
+      },
+      {
+        "num": 9,
+        "title": "I Don't Wanna (new version)",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 2230,
+        "timestamp": "37:10"
+      },
+      {
+        "num": 10,
+        "title": "Nina + Field Of Cops",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 2540,
+        "timestamp": "42:20"
+      },
+      {
+        "num": 11,
+        "title": "$0",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 2968,
+        "timestamp": "49:28"
+      },
+      {
+        "num": 12,
+        "title": "If You Turn Back Now (partial)",
+        "highlight": true,
+        "videoId": "video31",
+        "start": 3579,
+        "timestamp": "59:39"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video31",
+        "label": "i5yQANzEHRg",
+        "youtubeId": "i5yQANzEHRg"
+      }
+    ]
+  }
   }
 }
