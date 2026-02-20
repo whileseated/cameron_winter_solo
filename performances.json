@@ -2516,11 +2516,8 @@
       "setlist": [
         {
           "num": 1,
-          "title": "It All Fell In The River (partial)",
-          "highlight": true,
-          "videoId": "video29a",
-          "start": 0,
-          "timestamp": "(video)"
+          "title": "It All Fell In The River",
+          "highlight": false
         },
         {
           "num": 2,
@@ -2559,13 +2556,7 @@
           "highlight": false
         }
       ],
-      "videos": [
-        {
-          "id": "video29a",
-          "label": "@fartsplosion__69",
-          "platform": "tiktok",
-          "tiktokId": "7597512692500319519"
-        },        
+      "videos": [       
         {
           "id": "video29b",
           "label": "@colleedee",
@@ -2585,7 +2576,7 @@
         "venue": "Holy Trinity Cathedral",
         "city": "Auckland",
         "state": "",
-        "country": "NZ",
+        "country": "New Zealand",
         "complete": true,
         "mediaType": "audio",
         "disabled": false,
@@ -2700,7 +2691,7 @@
     "venue": "The Forum",
     "city": "Melbourne",
     "state": "",
-    "country": "AUS",
+    "country": "Australia",
     "complete": true,
     "mediaType": "video",
     "disabled": false,
@@ -2809,6 +2800,120 @@
         "youtubeId": "i5yQANzEHRg"
       }
     ]
+  },
+
+  "20260216": {
+    "date": "20260216",
+    "venue": "Sydney Opera House",
+    "city": "Sydney",
+    "state": "",
+    "country": "Australia",
+    "complete": true,
+    "mediaType": "video",
+    "disabled": false,
+    "setlist": [
+      {
+        "num": 1,
+        "title": "It All Fell In The River",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 76,
+        "timestamp": "1:16"
+      },
+      {
+        "num": 2,
+        "title": "Try As I May",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 396,
+        "timestamp": "6:36"
+      },
+      {
+        "num": 3,
+        "title": "Emperor XIII In Shades",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 736,
+        "timestamp": "12:16"
+      },
+      {
+        "num": 4,
+        "title": "The Rolling Stones",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 1000,
+        "timestamp": "16:40"
+      },
+      {
+        "num": 5,
+        "title": "Love Takes Miles",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 1264,
+        "timestamp": "21:04"
+      },
+      {
+        "num": 6,
+        "title": "Drinking Age",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 1512,
+        "timestamp": "25:12"
+      },
+      {
+        "num": 7,
+        "title": "Cancer Of The Skull",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 1830,
+        "timestamp": "30:30"
+      },
+      {
+        "num": 8,
+        "title": "Sandbag",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 2275,
+        "timestamp": "37:55"
+      },
+      {
+        "num": 9,
+        "title": "Nina + Field Of Cops",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 2488,
+        "timestamp": "41:28"
+      },
+      {
+        "num": 10,
+        "title": "$0",
+        "highlight": true,
+        "videoId": "video32",
+        "start": 2890,
+        "timestamp": "48:10"
+      },
+      {
+        "num": 11,
+        "title": "Take It With You",
+        "highlight": true,
+        "videoId": "video33",
+        "start": 3635,
+        "timestamp": "60:35"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video32",
+        "label": "zGx5x9SLMUA",
+        "youtubeId": "zGx5x9SLMUA"
+      },
+      {
+        "id": "video33",
+        "label": "Q05wJq92tFc",
+        "youtubeId": "Q05wJq92tFc"
+      }
+    ]
   }
   }
 }
+
