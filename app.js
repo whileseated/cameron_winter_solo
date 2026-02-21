@@ -23,6 +23,7 @@ const tiktokState = {}; // TikTok player state tracking {videoId: {currentTime, 
 let youtubeReady = false;
 let currentlyPlayingId = null;
 let currentlyPlayingLi = null;
+let pendingTrackPlay = null; // { li, targetId, startTime } - for ?track= URL deep linking
 const videoTracks = {};
 const progressIntervals = {};
 const POLL_INTERVAL_MS = 500;
@@ -142,7 +143,8 @@ function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     date: params.get('date'),
-    song: params.get('song')
+    song: params.get('song'),
+    track: params.get('track') ? parseInt(params.get('track'), 10) : null
   };
 }
 
@@ -159,6 +161,22 @@ function updateUrl(params) {
     url.searchParams.delete('song');
   }
   window.history.pushState({}, '', url);
+}
+
+function tryPlayPendingTrack() {
+  if (!pendingTrackPlay) return;
+  const { li, targetId, startTime } = pendingTrackPlay;
+  if (!getPlayerPlatform(targetId)) return; // Player not ready yet
+  if (currentlyPlayingLi) {
+    currentlyPlayingLi.classList.remove('playing');
+  }
+  playerSeekTo(targetId, startTime);
+  playerPlay(targetId);
+  currentlyPlayingId = targetId;
+  currentlyPlayingLi = li;
+  li.classList.add('playing');
+  updatePlayingConnector();
+  pendingTrackPlay = null;
 }
 
 function getSongSlug(songTitle) {
@@ -711,6 +729,7 @@ function initPlayer(elementId) {
     events: {
       onReady: () => {
         if (!isMobile()) setTimeout(draw, 100);
+        tryPlayPendingTrack();
       },
       onStateChange: (event) => {
         if (event.data === 1) {
@@ -840,6 +859,7 @@ function setupTikTokMessageListener() {
       case 'onPlayerReady':
         // Player is ready
         if (!isMobile()) setTimeout(draw, 100);
+        tryPlayPendingTrack();
         break;
 
       case 'onStateChange':
@@ -1734,6 +1754,19 @@ function handleUrlRouting() {
     const cardId = `card-${params.date}`;
     if (performancesData.performances[params.date]) {
       activateCard(cardId, false);
+      if (params.track) {
+        const card = document.getElementById(cardId);
+        if (card) {
+          const trackLis = card.querySelectorAll('li[data-link-to]');
+          const li = trackLis[params.track - 1]; // 1-indexed
+          if (li) {
+            const targetId = li.getAttribute('data-link-to').replace('#', '');
+            const startTime = parseInt(li.getAttribute('data-start') || '0', 10);
+            pendingTrackPlay = { li, targetId, startTime };
+            tryPlayPendingTrack(); // Try immediately; onReady will retry if player not yet ready
+          }
+        }
+      }
     } else {
       // Invalid date, fallback to default
       activateCard("card-20250307", false);
