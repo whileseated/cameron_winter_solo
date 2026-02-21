@@ -23,6 +23,8 @@ const tiktokState = {}; // TikTok player state tracking {videoId: {currentTime, 
 let youtubeReady = false;
 let currentlyPlayingId = null;
 let currentlyPlayingLi = null;
+let pendingTrackPlay = null; // { li, targetId, startTime } - for ?track= URL deep linking
+const playersReady = new Set(); // tracks which player elementIds have fired onReady
 const videoTracks = {};
 const progressIntervals = {};
 const POLL_INTERVAL_MS = 500;
@@ -142,7 +144,8 @@ function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     date: params.get('date'),
-    song: params.get('song')
+    song: params.get('song'),
+    track: params.get('track') ? parseInt(params.get('track'), 10) : null
   };
 }
 
@@ -159,6 +162,37 @@ function updateUrl(params) {
     url.searchParams.delete('song');
   }
   window.history.pushState({}, '', url);
+}
+
+function tryPlayPendingTrack() {
+  if (!pendingTrackPlay) return;
+  const { li, targetId, startTime } = pendingTrackPlay;
+
+  // Set UI state immediately (idempotent, safe to call before player is ready)
+  if (currentlyPlayingLi && currentlyPlayingLi !== li) {
+    currentlyPlayingLi.classList.remove('playing');
+  }
+  currentlyPlayingId = targetId;
+  currentlyPlayingLi = li;
+  li.classList.add('playing');
+  updatePlayingConnector();
+
+  // Only fire player commands once the player has signalled it's truly ready
+  if (!playersReady.has(targetId)) return; // onReady will retry
+
+  // Mute → seek → play → unmute to bypass browser autoplay policy.
+  // Muted autoplay is universally permitted; unmuting after playback starts is allowed.
+  const ytPlayer = players[targetId];
+  if (ytPlayer && ytPlayer.mute) {
+    ytPlayer.mute();
+    ytPlayer.seekTo(startTime, true);
+    ytPlayer.playVideo();
+    setTimeout(() => { if (ytPlayer.unMute) ytPlayer.unMute(); }, 500);
+  } else {
+    playerSeekTo(targetId, startTime);
+    playerPlay(targetId);
+  }
+  pendingTrackPlay = null;
 }
 
 function getSongSlug(songTitle) {
@@ -710,7 +744,9 @@ function initPlayer(elementId) {
     playerVars: { modestbranding: 1, rel: 0 },
     events: {
       onReady: () => {
+        playersReady.add(elementId);
         if (!isMobile()) setTimeout(draw, 100);
+        tryPlayPendingTrack();
       },
       onStateChange: (event) => {
         if (event.data === 1) {
@@ -839,7 +875,9 @@ function setupTikTokMessageListener() {
     switch (type) {
       case 'onPlayerReady':
         // Player is ready
+        playersReady.add(sourceElementId);
         if (!isMobile()) setTimeout(draw, 100);
+        tryPlayPendingTrack();
         break;
 
       case 'onStateChange':
@@ -1734,6 +1772,19 @@ function handleUrlRouting() {
     const cardId = `card-${params.date}`;
     if (performancesData.performances[params.date]) {
       activateCard(cardId, false);
+      if (params.track) {
+        const card = document.getElementById(cardId);
+        if (card) {
+          const trackLis = card.querySelectorAll('li[data-link-to]');
+          const li = trackLis[params.track - 1]; // 1-indexed
+          if (li) {
+            const targetId = li.getAttribute('data-link-to').replace('#', '');
+            const startTime = parseInt(li.getAttribute('data-start') || '0', 10);
+            pendingTrackPlay = { li, targetId, startTime };
+            tryPlayPendingTrack(); // Try immediately; onReady will retry if player not yet ready
+          }
+        }
+      }
     } else {
       // Invalid date, fallback to default
       activateCard("card-20250307", false);
