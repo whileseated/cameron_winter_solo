@@ -180,14 +180,21 @@ function tryPlayPendingTrack() {
   // Only fire player commands once the player has signalled it's truly ready
   if (!playersReady.has(targetId)) return; // onReady will retry
 
-  // Mute → seek → play → unmute to bypass browser autoplay policy.
-  // Muted autoplay is universally permitted; unmuting after playback starts is allowed.
+  // Mute → seek → play, then unmute on first user interaction.
+  // Muted autoplay is universally permitted; unMute() requires a real user gesture
+  // (setTimeout is not enough — Chrome/Arc will pause the video instead).
   const ytPlayer = players[targetId];
   if (ytPlayer && ytPlayer.mute) {
     ytPlayer.mute();
     ytPlayer.seekTo(startTime, true);
     ytPlayer.playVideo();
-    setTimeout(() => { if (ytPlayer.unMute) ytPlayer.unMute(); }, 500);
+    const unmute = () => {
+      if (ytPlayer.unMute) ytPlayer.unMute();
+      // Resume if the browser paused while muted
+      if (ytPlayer.getPlayerState && ytPlayer.getPlayerState() !== 1) ytPlayer.playVideo();
+    };
+    document.addEventListener('click', unmute, { once: true, capture: true });
+    document.addEventListener('keydown', unmute, { once: true, capture: true });
   } else {
     playerSeekTo(targetId, startTime);
     playerPlay(targetId);
