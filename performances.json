@@ -2915,8 +2915,8 @@
     ]
   },
 
-  "20250225": {
-    "date": "20250225",
+  "20260225": {
+    "date": "20260225",
     "venue": "Moerenuma Park Glass Pyramid",
     "city": "Sapporo",
     "state": "Hokkaido",
@@ -2991,7 +2991,7 @@
       },
       {
         "num": 9,
-        "title": "¥0 ($0)",
+        "title": "$0 ($0)",
         "videoId": "video34",
         "start": 2791,
         "timestamp": "46:31",
@@ -3014,8 +3014,6 @@
       }
     ]
   }
-  
-  
 
   }
 }
