@@ -14,5 +14,7 @@ convert-timestamps.js
 ignore/*
 
 .DS_Store
+.claude/
+pbcopy
 
 test.txt

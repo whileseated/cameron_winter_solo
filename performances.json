@@ -2913,7 +2913,110 @@
         "youtubeId": "Q05wJq92tFc"
       }
     ]
+  },
+
+  "20250225": {
+    "date": "20250225",
+    "venue": "Moerenuma Park Glass Pyramid",
+    "city": "Sapporo",
+    "state": "Hokkaido",
+    "country": "Japan",
+    "complete": true,
+    "mediaType": "audio",
+    "disabled": false,
+    "setlist": [
+      {
+        "num": 1,
+        "title": "It All Feel in the River",
+        "videoId": "video34",
+        "start": 0,
+        "timestamp": "0:00",
+        "highlight": true
+      },
+      {
+        "num": 2,
+        "title": "Try as I May",
+        "videoId": "video34",
+        "start": 402,
+        "timestamp": "6:42",
+        "highlight": true
+      },
+      {
+        "num": 3,
+        "title": "Emperor in Shades",
+        "videoId": "video34",
+        "start": 800,
+        "timestamp": "13:20",
+        "highlight": true
+      },
+      {
+        "num": 4,
+        "title": "The Rolling Stones",
+        "videoId": "video34",
+        "start": 1141,
+        "timestamp": "19:01",
+        "highlight": true
+      },
+      {
+        "num": 5,
+        "title": "Love Takes Miles",
+        "videoId": "video34",
+        "start": 1437,
+        "timestamp": "23:57",
+        "highlight": true
+      },
+      {
+        "num": 6,
+        "title": "Drinking Age",
+        "videoId": "video34",
+        "start": 1748,
+        "timestamp": "29:08",
+        "highlight": true
+      },
+      {
+        "num": 7,
+        "title": "We’re Thinking the Same Thing",
+        "videoId": "video34",
+        "start": 2080,
+        "timestamp": "34:40",
+        "highlight": true
+      },
+      {
+        "num": 8,
+        "title": "Nina + Field of Cops",
+        "videoId": "video34",
+        "start": 2328,
+        "timestamp": "38:48",
+        "highlight": true
+      },
+      {
+        "num": 9,
+        "title": "¥0 ($0)",
+        "videoId": "video34",
+        "start": 2791,
+        "timestamp": "46:31",
+        "highlight": true
+      },
+      {
+        "num": 10,
+        "title": "Serious World",
+        "videoId": "video34",
+        "start": 3428,
+        "timestamp": "57:08",
+        "highlight": true
+      }
+    ],
+    "videos": [
+      {
+        "id": "video34",
+        "youtubeId": "Phu1h4o04S0",
+        "label": "Phu1h4o04S0"
+      }
+    ]
   }
+  
+  
+
   }
 }
 
