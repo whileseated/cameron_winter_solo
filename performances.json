@@ -2922,7 +2922,7 @@
     "state": "Hokkaido",
     "country": "Japan",
     "complete": true,
-    "mediaType": "audio",
+    "mediaType": "video",
     "disabled": false,
     "setlist": [
       {
@@ -3021,7 +3021,7 @@
     "state": "",
     "country": "Japan",
     "complete": false,
-    "mediaType": "audio",
+    "mediaType": "video",
     "disabled": false,
     "setlist": [
       {
@@ -3125,7 +3125,7 @@
       "state": "São Paulo",
       "country": "Brazil",
       "complete": true,
-      "mediaType": "audio",
+      "mediaType": "video",
       "disabled": false,
       "setlist": [
         {
