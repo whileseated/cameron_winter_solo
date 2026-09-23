@@ -470,17 +470,6 @@ li.playing .playing-indicator {
   max-width: 280px;
 }
 
-/* Shown when an X clip's CDN URL has gone dead */
-.video-error {
-  font-family: 'Source Code Pro', sans-serif;
-  font-size: 11px;
-  color: var(--text-meta);
-  border: 1px dashed var(--border);
-  border-radius: 5px;
-  padding: 12px;
-  text-align: center;
-}
-
 .video-label {
   font-family: 'Source Code Pro', sans-serif;
   font-size: 10px;
