@@ -20,6 +20,7 @@ const TAB_LAST_ROW_CURVE_PADDING = 1;
 const players = {};
 const tiktokPlayers = {}; // TikTok iframe references
 const tiktokState = {}; // TikTok player state tracking {videoId: {currentTime, duration, state}}
+const tiktokPrimed = new Set(); // TikTok players woken up by the autoplay priming pass
 let youtubeReady = false;
 let currentlyPlayingId = null;
 let currentlyPlayingLi = null;
@@ -806,8 +807,12 @@ function initTikTokPlayer(elementId, tiktokId) {
 
   // Create TikTok iframe
   const iframe = document.createElement('iframe');
-  iframe.src = `https://www.tiktok.com/player/v1/${tiktokId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&loop=0&autoplay=0&music_info=0&description=0&rel=0`;
-  iframe.allow = 'fullscreen';
+  iframe.src = `https://www.tiktok.com/player/v1/${tiktokId}?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&timestamp=1&loop=0&autoplay=1&music_info=0&description=0&rel=0`;
+  // 'autoplay' is required for the parent page to start playback via postMessage.
+  // Without it the Permissions Policy blocks play() inside the cross-origin frame,
+  // so clicking a setlist row silently does nothing. The YouTube embeds already
+  // carry autoplay in their allow list; TikTok needs it for the same reason.
+  iframe.allow = 'autoplay; fullscreen';
   iframe.style.width = '100%';
   iframe.style.aspectRatio = '9 / 16';
   iframe.style.border = '1px solid var(--border)';
@@ -853,6 +858,9 @@ function tiktokSeekTo(elementId, time) {
 }
 
 function tiktokPlay(elementId) {
+  // Undo the mute the browser imposed on the autoplay priming pass. The setlist
+  // click is a real user gesture, so unmuting here is permitted.
+  sendTikTokMessage(elementId, 'unMute');
   sendTikTokMessage(elementId, 'play');
 }
 
@@ -877,7 +885,7 @@ function setupTikTokMessageListener() {
       }
     }
 
-    if (!sourceElementId) return;
+    if (!sourceElementId || !tiktokState[sourceElementId]) return;
 
     switch (type) {
       case 'onPlayerReady':
@@ -890,6 +898,20 @@ function setupTikTokMessageListener() {
       case 'onStateChange':
         // -1=init, 0=ended, 1=playing, 2=paused, 3=buffering
         tiktokState[sourceElementId].state = value;
+        // The embed ignores postMessage until it has actually played once, so it is
+        // loaded with autoplay=1 (the browser forces it muted) purely to wake it up.
+        // The moment it reports playing for the first time it is controllable, so park
+        // it back at 0 and paused — the card looks idle but the player now responds.
+        // Pausing earlier, on onPlayerReady, is too soon: autoplay starts afterwards.
+        if (value === 1 && !tiktokPrimed.has(sourceElementId)) {
+          tiktokPrimed.add(sourceElementId);
+          if (currentlyPlayingId !== sourceElementId) {
+            tiktokPause(sourceElementId);
+            tiktokSeekTo(sourceElementId, 0);
+            tiktokState[sourceElementId].state = 2;
+            break;
+          }
+        }
         if (value === 1) {
           // Playing - start progress tracking
           startTikTokProgressWatcher(sourceElementId);
