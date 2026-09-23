@@ -13,7 +13,7 @@
         {
           "num": 1,
           "title": "$0",
-          "videoId": "video21",
+          "videoId": "brooklyn-20241205-a",
           "start": 19,
           "timestamp": "0:19",
           "highlight": true
@@ -21,7 +21,7 @@
       ],
       "videos": [
         {
-          "id": "video21",
+          "id": "brooklyn-20241205-a",
           "youtubeId": "WyBYwpqg6io",
           "label": "WyBYwpqg6io"
         }
@@ -40,7 +40,7 @@
         {
           "num": 1,
           "title": "Drinking Age",
-          "videoId": "video25",
+          "videoId": "brooklyn-20241206-a",
           "start": 44,
           "timestamp": "0:44",
           "highlight": true
@@ -48,7 +48,7 @@
       ],
       "videos": [
         {
-          "id": "video25",
+          "id": "brooklyn-20241206-a",
           "youtubeId": "ci8kXsdzLiI",
           "label": "ci8kXsdzLiI"
         }
@@ -67,7 +67,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 36,
           "timestamp": "0:36",
           "highlight": true
@@ -75,7 +75,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 424,
           "timestamp": "7:04",
           "highlight": true
@@ -83,7 +83,7 @@
         {
           "num": 3,
           "title": "Au Pays du Cocaine",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 695,
           "timestamp": "11:35",
           "highlight": true
@@ -91,7 +91,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 925,
           "timestamp": "15:25",
           "highlight": true
@@ -99,7 +99,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 1127,
           "timestamp": "18:47",
           "highlight": true
@@ -107,7 +107,7 @@
         {
           "num": 6,
           "title": "I Have Waited In The Dark",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 1383,
           "timestamp": "23:03",
           "highlight": true
@@ -115,7 +115,7 @@
         {
           "num": 7,
           "title": "Nina + Field Of Cops",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 1545,
           "timestamp": "25:45",
           "highlight": true
@@ -123,7 +123,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 2000,
           "timestamp": "33:20",
           "highlight": true
@@ -131,7 +131,7 @@
         {
           "num": 9,
           "title": "Cancer Of The Skull",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 2473,
           "timestamp": "41:13",
           "highlight": true
@@ -139,7 +139,7 @@
         {
           "num": 10,
           "title": "Take It With You",
-          "videoId": "video9",
+          "videoId": "chicago-20250118-a",
           "start": 2839,
           "timestamp": "47:19",
           "highlight": true
@@ -147,7 +147,7 @@
       ],
       "videos": [
         {
-          "id": "video9",
+          "id": "chicago-20250118-a",
           "youtubeId": "_c5pyv6i5mg",
           "label": "_c5pyv6i5mg"
         }
@@ -166,7 +166,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 88,
           "timestamp": "1:28",
           "highlight": true
@@ -174,7 +174,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 417,
           "timestamp": "6:57",
           "highlight": true
@@ -182,7 +182,7 @@
         {
           "num": 3,
           "title": "Vines",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 660,
           "timestamp": "11:00",
           "highlight": true
@@ -190,7 +190,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 861,
           "timestamp": "14:21",
           "highlight": true
@@ -198,7 +198,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 1065,
           "timestamp": "17:45",
           "highlight": true
@@ -206,7 +206,7 @@
         {
           "num": 6,
           "title": "Long Island City Here I Come",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 1298,
           "timestamp": "21:38",
           "highlight": true
@@ -214,7 +214,7 @@
         {
           "num": 7,
           "title": "We're Thinking The Same Thing",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 1652,
           "timestamp": "27:32",
           "highlight": true
@@ -222,7 +222,7 @@
         {
           "num": 8,
           "title": "Nina + Field Of Cops",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 1820,
           "timestamp": "30:20",
           "highlight": true
@@ -230,7 +230,7 @@
         {
           "num": 9,
           "title": "$0",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 2172,
           "timestamp": "36:12",
           "highlight": true
@@ -238,7 +238,7 @@
         {
           "num": 10,
           "title": "Can't Keep Anything",
-          "videoId": "video12",
+          "videoId": "los-angeles-20250210-a",
           "start": 2554,
           "timestamp": "42:34",
           "highlight": true
@@ -246,7 +246,7 @@
       ],
       "videos": [
         {
-          "id": "video12",
+          "id": "los-angeles-20250210-a",
           "youtubeId": "DLlk8I9O73Y",
           "label": "DLlk8I9O73Y"
         }
@@ -265,7 +265,7 @@
         {
           "num": 1,
           "title": "If You Turn Back Now",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 65,
           "timestamp": "1:05",
           "highlight": true
@@ -273,7 +273,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 330,
           "timestamp": "5:30",
           "highlight": true
@@ -281,7 +281,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 635,
           "timestamp": "10:35",
           "highlight": true
@@ -289,7 +289,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 860,
           "timestamp": "14:20",
           "highlight": true
@@ -297,7 +297,7 @@
         {
           "num": 6,
           "title": "Cancer Of The Skull",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 1123,
           "timestamp": "18:43",
           "highlight": true
@@ -305,7 +305,7 @@
         {
           "num": 7,
           "title": "LSD",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 1507,
           "timestamp": "25:07",
           "highlight": true
@@ -313,7 +313,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 1819,
           "timestamp": "30:19",
           "highlight": true
@@ -321,7 +321,7 @@
         {
           "num": 9,
           "title": "Take It With You",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 2308,
           "timestamp": "38:28",
           "highlight": true
@@ -329,7 +329,7 @@
         {
           "num": 10,
           "title": "Amazing Grace",
-          "videoId": "video1",
+          "videoId": "philadelphia-20250307-a",
           "start": 2712,
           "timestamp": "45:12",
           "highlight": true
@@ -337,7 +337,7 @@
       ],
       "videos": [
         {
-          "id": "video1",
+          "id": "philadelphia-20250307-a",
           "youtubeId": "lYB-ZZAG0ts",
           "label": "lYB-ZZAG0ts"
         }
@@ -371,7 +371,7 @@
         {
           "num": 4,
           "title": "Drinking Age",
-          "videoId": "video18",
+          "videoId": "nyc-20250310-a",
           "partial": true,
           "start": 0,
           "timestamp": "00:00",
@@ -405,7 +405,7 @@
       ],
       "videos": [
         {
-          "id": "video18",
+          "id": "nyc-20250310-a",
           "youtubeId": "pPVCFC9pbQw",
           "label": "pPVCFC9pbQw"
         }
@@ -454,7 +454,7 @@
         {
           "num": 7,
           "title": "Nina + Field of Cops",
-          "videoId": "video22",
+          "videoId": "nyc-20250311-a",
           "start": 0,
           "timestamp": "00:00",
           "highlight": true
@@ -472,7 +472,7 @@
       ],
       "videos": [
         {
-          "id": "video22",
+          "id": "nyc-20250311-a",
           "youtubeId": "ZY8Yxm2F8Sc",
           "label": "ZY8Yxm2F8Sc"
         }
@@ -491,7 +491,7 @@
         {
           "num": 1,
           "title": "I Will Let You Down",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 0,
           "timestamp": "0:00",
           "highlight": true
@@ -499,7 +499,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 294,
           "timestamp": "4:54",
           "highlight": true
@@ -507,7 +507,7 @@
         {
           "num": 3,
           "title": "Love Takes Miles",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 570,
           "timestamp": "9:30",
           "highlight": true
@@ -515,7 +515,7 @@
         {
           "num": 4,
           "title": "Drinking Age",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 827,
           "timestamp": "13:47",
           "highlight": true
@@ -523,7 +523,7 @@
         {
           "num": 5,
           "title": "Cancer Of The Skull",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 1141,
           "timestamp": "19:01",
           "highlight": true
@@ -531,7 +531,7 @@
         {
           "num": 6,
           "title": "Nina + Field Of Cops",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 1571,
           "timestamp": "26:11",
           "highlight": true
@@ -539,7 +539,7 @@
         {
           "num": 7,
           "title": "$0",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 1959,
           "timestamp": "32:39",
           "highlight": true
@@ -547,7 +547,7 @@
         {
           "num": 8,
           "title": "Can't Keep Anything",
-          "videoId": "video10",
+          "videoId": "nyc-20250315-a",
           "start": 2456,
           "timestamp": "40:56",
           "highlight": true
@@ -555,7 +555,7 @@
       ],
       "videos": [
         {
-          "id": "video10",
+          "id": "nyc-20250315-a",
           "youtubeId": "KJVRYPyxwew",
           "label": "KJVRYPyxwew"
         }
@@ -574,7 +574,7 @@
         {
           "num": 1,
           "title": "David (unreleased)",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 0,
           "timestamp": "0:00",
           "highlight": true
@@ -582,7 +582,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 222,
           "timestamp": "3:42",
           "highlight": true
@@ -590,7 +590,7 @@
         {
           "num": 3,
           "title": "Nausicaä (Love Will Be Revealed)",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 440,
           "timestamp": "7:20",
           "highlight": true
@@ -598,7 +598,7 @@
         {
           "num": 4,
           "title": "Drinking Age",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 672,
           "timestamp": "11:12",
           "highlight": true
@@ -606,7 +606,7 @@
         {
           "num": 5,
           "title": "Cancer Of The Skull",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 933,
           "timestamp": "15:33",
           "highlight": true
@@ -614,7 +614,7 @@
         {
           "num": 6,
           "title": "Love Takes Miles",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 1290,
           "timestamp": "21:30",
           "highlight": true
@@ -622,7 +622,7 @@
         {
           "num": 7,
           "title": "Nina + Field Of Cops",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 1539,
           "timestamp": "25:39",
           "highlight": true
@@ -630,7 +630,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 1899,
           "timestamp": "31:39",
           "highlight": true
@@ -638,7 +638,7 @@
         {
           "num": 9,
           "title": "Shenandoah (cover)",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 2325,
           "timestamp": "38:45",
           "highlight": true
@@ -646,7 +646,7 @@
         {
           "num": 10,
           "title": "Long Island City Here I Come",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 2532,
           "timestamp": "42:12",
           "highlight": true
@@ -654,7 +654,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video4",
+          "videoId": "clinton-20250416-a",
           "start": 2948,
           "timestamp": "49:08",
           "highlight": true
@@ -662,7 +662,7 @@
       ],
       "videos": [
         {
-          "id": "video4",
+          "id": "clinton-20250416-a",
           "youtubeId": "izK1I6bIvA0",
           "label": "izK1I6bIvA0"
         }
@@ -681,7 +681,7 @@
         {
           "num": 1,
           "title": "If You Turn Back Now",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 195,
           "timestamp": "3:15",
           "highlight": true
@@ -689,7 +689,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 460,
           "timestamp": "7:40",
           "highlight": true
@@ -697,7 +697,7 @@
         {
           "num": 3,
           "title": "The Rolling Stones",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 818,
           "timestamp": "13:38",
           "highlight": true
@@ -705,7 +705,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 1050,
           "timestamp": "17:30",
           "highlight": true
@@ -713,7 +713,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 1262,
           "timestamp": "21:02",
           "highlight": true
@@ -721,7 +721,7 @@
         {
           "num": 6,
           "title": "Cancer Of The Skull",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 1523,
           "timestamp": "25:23",
           "highlight": true
@@ -729,7 +729,7 @@
         {
           "num": 7,
           "title": "David",
-          "videoId": "video7b",
+          "videoId": "baltimore-20250417-b",
           "start": 15,
           "timestamp": "00:15",
           "highlight": true
@@ -737,7 +737,7 @@
         {
           "num": 8,
           "title": "Nina+ Field Of Cops",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 2197,
           "timestamp": "36:37",
           "highlight": true
@@ -745,7 +745,7 @@
         {
           "num": 9,
           "title": "$0",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 2591,
           "timestamp": "43:11",
           "highlight": true
@@ -753,7 +753,7 @@
         {
           "num": 10,
           "title": "The Star-Spangled Banner",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 3067,
           "timestamp": "51:07",
           "highlight": true
@@ -761,7 +761,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video7",
+          "videoId": "baltimore-20250417-a",
           "start": 3162,
           "timestamp": "52:42",
           "highlight": true
@@ -769,12 +769,12 @@
       ],
       "videos": [
         {
-          "id": "video7",
+          "id": "baltimore-20250417-a",
           "youtubeId": "iNFPkCtQfPI",
           "label": "iNFPkCtQfPI"
         },
         {
-          "id": "video7b",
+          "id": "baltimore-20250417-b",
           "youtubeId": "49-a89dINAM",
           "label": "49-a89dINAM"
         }
@@ -793,7 +793,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 0,
           "timestamp": "0:00",
           "highlight": true
@@ -801,7 +801,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 346,
           "timestamp": "5:46",
           "highlight": true
@@ -809,7 +809,7 @@
         {
           "num": 3,
           "title": "Love Takes Miles",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 584,
           "timestamp": "9:44",
           "highlight": true
@@ -817,7 +817,7 @@
         {
           "num": 4,
           "title": "Drinking Age",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 863,
           "timestamp": "14:23",
           "highlight": true
@@ -825,7 +825,7 @@
         {
           "num": 5,
           "title": "Cancer Of The Skull",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 1111,
           "timestamp": "18:31",
           "highlight": true
@@ -833,7 +833,7 @@
         {
           "num": 6,
           "title": "David",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 1522,
           "timestamp": "25:22",
           "highlight": true
@@ -841,7 +841,7 @@
         {
           "num": 7,
           "title": "Nina + Field Of Cops",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 1764,
           "timestamp": "29:24",
           "highlight": true
@@ -849,7 +849,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 2188,
           "timestamp": "36:28",
           "highlight": true
@@ -857,7 +857,7 @@
         {
           "num": 9,
           "title": "Take It With You",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 2699,
           "timestamp": "44:59",
           "highlight": true
@@ -865,7 +865,7 @@
         {
           "num": 10,
           "title": "Nausicaä (Love Will Be Revealed)",
-          "videoId": "video20",
+          "videoId": "arlington-20250419-a",
           "start": 3104,
           "timestamp": "51:44",
           "highlight": true
@@ -873,7 +873,7 @@
       ],
       "videos": [
         {
-          "id": "video20",
+          "id": "arlington-20250419-a",
           "youtubeId": "7lV_2J72h-o",
           "label": "7lV_2J72h-o"
         }
@@ -932,7 +932,7 @@
         {
           "num": 9,
           "title": "$0 (On church organ)",
-          "videoId": "video3",
+          "videoId": "nyc-20250421-a",
           "start": 25,
           "timestamp": "00:25",
           "highlight": true
@@ -940,7 +940,7 @@
       ],
       "videos": [
         {
-          "id": "video3",
+          "id": "nyc-20250421-a",
           "youtubeId": "TAh2UMueeao",
           "label": "TAh2UMueeao"
         }
@@ -999,7 +999,7 @@
         {
           "num": 9,
           "title": "Amazing Grace",
-          "videoId": "video6",
+          "videoId": "nyc-20250422-a",
           "start": 48,
           "timestamp": "00:48",
           "highlight": true
@@ -1007,7 +1007,7 @@
       ],
       "videos": [
         {
-          "id": "video6",
+          "id": "nyc-20250422-a",
           "youtubeId": "PLPNX4yf0iI",
           "label": "PLPNX4yf0iI"
         }
@@ -1026,7 +1026,7 @@
         {
           "num": 1,
           "title": "The Rolling Stones",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 237,
           "timestamp": "3:57",
           "highlight": true
@@ -1034,7 +1034,7 @@
         {
           "num": 2,
           "title": "Love Take Miles",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 528,
           "timestamp": "8:48",
           "highlight": true
@@ -1042,7 +1042,7 @@
         {
           "num": 3,
           "title": "Drinking Age",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 760,
           "timestamp": "12:40",
           "highlight": true
@@ -1050,7 +1050,7 @@
         {
           "num": 4,
           "title": "Cancer Of The Skull",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 1084,
           "timestamp": "18:04",
           "highlight": true
@@ -1058,7 +1058,7 @@
         {
           "num": 5,
           "title": "Try As I May",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 1528,
           "timestamp": "25:28",
           "highlight": true
@@ -1066,7 +1066,7 @@
         {
           "num": 6,
           "title": "If I Turn Back Now",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 1922,
           "timestamp": "32:02",
           "highlight": true
@@ -1074,7 +1074,7 @@
         {
           "num": 7,
           "title": "Nina + Field Of Cops",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 2195,
           "timestamp": "36:35",
           "highlight": true
@@ -1082,7 +1082,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 2588,
           "timestamp": "43:08",
           "highlight": true
@@ -1090,7 +1090,7 @@
         {
           "num": 9,
           "title": "Take It With You [encore]",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 3045,
           "timestamp": "50:45",
           "highlight": true
@@ -1098,7 +1098,7 @@
         {
           "num": 10,
           "title": "Amazing Grace (traditional Cover)",
-          "videoId": "video2",
+          "videoId": "london-20250424-a",
           "start": 3398,
           "timestamp": "56:38",
           "highlight": true
@@ -1106,7 +1106,7 @@
       ],
       "videos": [
         {
-          "id": "video2",
+          "id": "london-20250424-a",
           "youtubeId": "pUIj2pB_1S0",
           "label": "pUIj2pB_1S0"
         }
@@ -1125,7 +1125,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 0,
           "timestamp": "0:00",
           "highlight": true
@@ -1133,7 +1133,7 @@
         {
           "num": 2,
           "title": "The Rolling Stones",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 349,
           "timestamp": "5:49",
           "highlight": true
@@ -1141,7 +1141,7 @@
         {
           "num": 3,
           "title": "Drinking Age",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 608,
           "timestamp": "10:08",
           "highlight": true
@@ -1149,7 +1149,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 886,
           "timestamp": "14:46",
           "highlight": true
@@ -1157,7 +1157,7 @@
         {
           "num": 5,
           "title": "Cancer Of The Skull",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 1111,
           "timestamp": "18:31",
           "highlight": true
@@ -1165,7 +1165,7 @@
         {
           "num": 6,
           "title": "Nina + Field Of Cops",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 1577,
           "timestamp": "26:17",
           "highlight": true
@@ -1173,7 +1173,7 @@
         {
           "num": 7,
           "title": "$0",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 1964,
           "timestamp": "32:44",
           "highlight": true
@@ -1181,7 +1181,7 @@
         {
           "num": 8,
           "title": "Take It With You",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 2414,
           "timestamp": "40:14",
           "highlight": true
@@ -1189,7 +1189,7 @@
         {
           "num": 9,
           "title": "Nausicaä (Love Will Be Revealed)",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 2640,
           "timestamp": "44:00",
           "highlight": true
@@ -1197,7 +1197,7 @@
         {
           "num": 10,
           "title": "I Will Let You Down",
-          "videoId": "video16",
+          "videoId": "london-20250425-a",
           "start": 2948,
           "timestamp": "49:08",
           "highlight": true
@@ -1205,7 +1205,7 @@
       ],
       "videos": [
         {
-          "id": "video16",
+          "id": "london-20250425-a",
           "youtubeId": "l64Ewk6AGyk",
           "label": "l64Ewk6AGyk"
         }
@@ -1224,7 +1224,7 @@
         {
           "num": 1,
           "title": "Drinking Age",
-          "videoId": "video8",
+          "videoId": "los-angeles-20250427-a",
           "start": 8,
           "timestamp": "00:08",
           "highlight": true
@@ -1232,7 +1232,7 @@
       ],
       "videos": [
         {
-          "id": "video8",
+          "id": "los-angeles-20250427-a",
           "youtubeId": "swwC4SdvIK4",
           "label": "swwC4SdvIK4"
         }
@@ -1251,7 +1251,7 @@
         {
           "num": 1,
           "title": "Drinking Age",
-          "videoId": "paris-videoA",
+          "videoId": "paris-20250429-a",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1259,7 +1259,7 @@
         {
           "num": 2,
           "title": "$0",
-          "videoId": "paris-videoB",
+          "videoId": "paris-20250429-b",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1267,7 +1267,7 @@
         {
           "num": 3,
           "title": "Cancer of the Skull",
-          "videoId": "paris-videoC",
+          "videoId": "paris-20250429-c",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1280,7 +1280,7 @@
         {
           "num": 5,
           "title": "Nausicaä (Love Will Be Revealed)",
-          "videoId": "paris-videoD",
+          "videoId": "paris-20250429-d",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1288,22 +1288,22 @@
       ],
       "videos": [
         {
-          "id": "paris-videoA",
+          "id": "paris-20250429-a",
           "youtubeId": "qzhW7Kcqj1Y",
           "label": "qzhW7Kcqj1Y"
         },
         {
-          "id": "paris-videoB",
+          "id": "paris-20250429-b",
           "youtubeId": "7jaPH8-ZIbs",
           "label": "7jaPH8-ZIbs"
         },
         {
-          "id": "paris-videoC",
+          "id": "paris-20250429-c",
           "youtubeId": "l-FEaewn-jY",
           "label": "l-FEaewn-jY"
         },
         {
-          "id": "paris-videoD",
+          "id": "paris-20250429-d",
           "youtubeId": "xlWa070q2S4",
           "label": "xlWa070q2S4"
         }
@@ -1322,7 +1322,7 @@
         {
           "num": 1,
           "title": "Your Enemy",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 50,
           "timestamp": "0:50",
           "highlight": true
@@ -1330,7 +1330,7 @@
         {
           "num": 2,
           "title": "Noah",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 465,
           "timestamp": "7:45",
           "highlight": true
@@ -1338,7 +1338,7 @@
         {
           "num": 3,
           "title": "Drinking Age",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 727,
           "timestamp": "12:07",
           "highlight": true
@@ -1346,7 +1346,7 @@
         {
           "num": 4,
           "title": "I Don't Wanna",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 1034,
           "timestamp": "17:14",
           "highlight": true
@@ -1354,7 +1354,7 @@
         {
           "num": 5,
           "title": "The Rolling Stones",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 1311,
           "timestamp": "21:51",
           "highlight": true
@@ -1362,7 +1362,7 @@
         {
           "num": 6,
           "title": "Emperor XIII In Shades",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 1580,
           "timestamp": "26:20",
           "highlight": true
@@ -1370,7 +1370,7 @@
         {
           "num": 7,
           "title": "If You Turn Back Now",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 1822,
           "timestamp": "30:22",
           "highlight": true
@@ -1378,7 +1378,7 @@
         {
           "num": 8,
           "title": "$0",
-          "videoId": "video23b",
+          "videoId": "durham-20250514-a",
           "start": 2112,
           "timestamp": "35:12",
           "highlight": true
@@ -1386,7 +1386,7 @@
       ],
       "videos": [
         {
-          "id": "video23b",
+          "id": "durham-20250514-a",
           "youtubeId": "YGq5A69Mp5s",
           "label": "YGq5A69Mp5s"
         }
@@ -1405,7 +1405,7 @@
         {
           "num": 1,
           "title": "Love Takes Miles",
-          "videoId": "video17",
+          "videoId": "london-20250525-a",
           "start": 0,
           "timestamp": "00:00",
           "highlight": true
@@ -1413,7 +1413,7 @@
       ],
       "videos": [
         {
-          "id": "video17",
+          "id": "london-20250525-a",
           "youtubeId": "SXnGjtGhpOk",
           "label": "SXnGjtGhpOk"
         }
@@ -1432,7 +1432,7 @@
         {
           "num": 1,
           "title": "The Rolling Stones",
-          "videoId": "video13",
+          "videoId": "neport-20250725-a",
           "start": 16,
           "timestamp": "0:16",
           "highlight": true
@@ -1440,7 +1440,7 @@
         {
           "num": 2,
           "title": "John Henry",
-          "videoId": "video13",
+          "videoId": "neport-20250725-a",
           "start": 276,
           "timestamp": "4:36",
           "highlight": true
@@ -1448,7 +1448,7 @@
         {
           "num": 3,
           "title": "Drinking Age",
-          "videoId": "video13",
+          "videoId": "neport-20250725-a",
           "start": 473,
           "timestamp": "7:53",
           "highlight": true
@@ -1456,7 +1456,7 @@
         {
           "num": 4,
           "title": "Emperor XIII In Shades",
-          "videoId": "video13",
+          "videoId": "neport-20250725-a",
           "start": 764,
           "timestamp": "12:44",
           "highlight": true
@@ -1464,7 +1464,7 @@
         {
           "num": 5,
           "title": "0$",
-          "videoId": "video13",
+          "videoId": "neport-20250725-a",
           "start": 989,
           "timestamp": "16:29",
           "highlight": true
@@ -1472,7 +1472,7 @@
       ],
       "videos": [
         {
-          "id": "video13",
+          "id": "neport-20250725-a",
           "youtubeId": "dt4oppO9cQ4",
           "label": "dt4oppO9cQ4"
         }
@@ -1491,7 +1491,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 0,
           "timestamp": "0:00",
           "highlight": true
@@ -1499,7 +1499,7 @@
         {
           "num": 2,
           "title": "Emperor XIII In Shades",
-          "videoId": "manchester-videoB",
+          "videoId": "manchester-20251130-b",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1507,7 +1507,7 @@
         {
           "num": 3,
           "title": "The Rolling Stones",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 645,
           "timestamp": "10:45",
           "highlight": true
@@ -1515,7 +1515,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 947,
           "timestamp": "15:47",
           "highlight": true
@@ -1523,7 +1523,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 1185,
           "timestamp": "19:45",
           "highlight": true
@@ -1531,7 +1531,7 @@
         {
           "num": 6,
           "title": "Cancer Of The Skull",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 1610,
           "timestamp": "26:50",
           "highlight": true
@@ -1539,7 +1539,7 @@
         {
           "num": 7,
           "title": "Serious World",
-          "videoId": "manchester-videoC",
+          "videoId": "manchester-20251130-c",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1547,7 +1547,7 @@
         {
           "num": 8,
           "title": "Can't Keep Anything",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 2238,
           "timestamp": "37:18",
           "highlight": true
@@ -1555,7 +1555,7 @@
         {
           "num": 9,
           "title": "If You Turn Back Now",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 2561,
           "timestamp": "42:41",
           "highlight": true
@@ -1563,7 +1563,7 @@
         {
           "num": 10,
           "title": "Vines",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 2902,
           "timestamp": "48:22",
           "highlight": true
@@ -1571,7 +1571,7 @@
         {
           "num": 11,
           "title": "Nina + Field Of Cops",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 3213,
           "timestamp": "53:33",
           "highlight": true
@@ -1579,7 +1579,7 @@
         {
           "num": 12,
           "title": "$0",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 3625,
           "timestamp": "60:25",
           "highlight": true
@@ -1587,7 +1587,7 @@
         {
           "num": 13,
           "title": "Take It With You",
-          "videoId": "manchester-videoA",
+          "videoId": "manchester-20251130-a",
           "start": 4167,
           "timestamp": "69:27",
           "highlight": true
@@ -1595,17 +1595,17 @@
       ],
       "videos": [
         {
-          "id": "manchester-videoA",
+          "id": "manchester-20251130-a",
           "youtubeId": "0d2ws-QF70k",
           "label": "0d2ws-QF70k"
         },
         {
-          "id": "manchester-videoB",
+          "id": "manchester-20251130-b",
           "youtubeId": "PJysfrfEQGo",
           "label": "PJysfrfEQGo"
         },
         {
-          "id": "manchester-videoC",
+          "id": "manchester-20251130-c",
           "youtubeId": "ERQHb--ZL8I",
           "label": "ERQHb--ZL8I"
         }
@@ -1624,7 +1624,7 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "videoId": "video26d",
+          "videoId": "london-20251201-d",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1632,7 +1632,7 @@
         {
           "num": 2,
           "title": "Emperor XIII in Shades",
-          "videoId": "video26e",
+          "videoId": "london-20251201-e",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1640,7 +1640,7 @@
         {
           "num": 3,
           "title": "The Rolling Stones",
-          "videoId": "video26f",
+          "videoId": "london-20251201-f",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1648,7 +1648,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video26",
+          "videoId": "london-20251201-a",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1661,7 +1661,7 @@
         {
           "num": 6,
           "title": "Nausicaä (Love Will Be Revealed)",
-          "videoId": "video26c",
+          "videoId": "london-20251201-c",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1669,7 +1669,7 @@
         {
           "num": 7,
           "title": "If You Turn Back Now",
-          "videoId": "video26b",
+          "videoId": "london-20251201-b",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1677,7 +1677,7 @@
         {
           "num": 8,
           "title": "Noah",
-          "videoId": "video26g",
+          "videoId": "london-20251201-g",
           "start": 0,
           "timestamp": "(audio)",
           "highlight": true
@@ -1705,37 +1705,37 @@
       ],
       "videos": [
         {
-          "id": "video26",
+          "id": "london-20251201-a",
           "youtubeId": "_hXS_r1i1MY",
           "label": "_hXS_r1i1MY"
         },
         {
-          "id": "video26b",
+          "id": "london-20251201-b",
           "youtubeId": "Fp-r4hh2yl8",
           "label": "Fp-r4hh2yl8"
         },
         {
-          "id": "video26c",
+          "id": "london-20251201-c",
           "youtubeId": "Fp-r4hh2yl8",
           "label": "Fp-r4hh2yl8"
         },
         {
-          "id": "video26d",
+          "id": "london-20251201-d",
           "youtubeId": "x5Q-jNP4Xp0",
           "label": "x5Q-jNP4Xp0"
         },
         {
-          "id": "video26e",
+          "id": "london-20251201-e",
           "youtubeId": "b0iDOoJxpy4",
           "label": "b0iDOoJxpy4"
         },
         {
-          "id": "video26f",
+          "id": "london-20251201-f",
           "youtubeId": "XhrXKa4dfCg",
           "label": "XhrXKa4dfCg"
         },
         {
-          "id": "video26g",
+          "id": "london-20251201-g",
           "youtubeId": "do6_clsfvHw",
           "label": "do6_clsfvHw"
         }
@@ -1754,7 +1754,7 @@
         {
           "num": 1,
           "title": "It All Fell In The River",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 75,
           "timestamp": "1:15",
           "highlight": true
@@ -1762,7 +1762,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video11f",
+          "videoId": "paris-20251203-b",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1770,7 +1770,7 @@
         {
           "num": 3,
           "title": "Emperor XIII In Shades",
-          "videoId": "video11c",
+          "videoId": "paris-20251203-c",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1778,7 +1778,7 @@
         {
           "num": 4,
           "title": "The Rolling Stones",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 967,
           "timestamp": "16:07",
           "highlight": true
@@ -1786,7 +1786,7 @@
         {
           "num": 5,
           "title": "Love Takes Miles",
-          "videoId": "video11b",
+          "videoId": "paris-20251203-d",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1794,7 +1794,7 @@
         {
           "num": 6,
           "title": "Drinking Age",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 1450,
           "timestamp": "24:10",
           "highlight": true
@@ -1802,7 +1802,7 @@
         {
           "num": 7,
           "title": "Cancer Of The Skull",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 1802,
           "timestamp": "30:02",
           "highlight": true
@@ -1810,7 +1810,7 @@
         {
           "num": 8,
           "title": "I Will Let You Down",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 2231,
           "timestamp": "37:11",
           "highlight": true
@@ -1818,7 +1818,7 @@
         {
           "num": 9,
           "title": "If You Turn Back Now",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 2522,
           "timestamp": "42:02",
           "highlight": true
@@ -1826,7 +1826,7 @@
         {
           "num": 10,
           "title": "Nina + Field Of Cops",
-          "videoId": "video11e",
+          "videoId": "paris-20251203-e",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1834,7 +1834,7 @@
         {
           "num": 11,
           "title": "$0",
-          "videoId": "video11d",
+          "videoId": "paris-20251203-f",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1842,7 +1842,7 @@
         {
           "num": 12,
           "title": "Take It With You",
-          "videoId": "video11",
+          "videoId": "paris-20251203-a",
           "start": 3902,
           "timestamp": "65:02",
           "highlight": true
@@ -1850,32 +1850,32 @@
       ],
       "videos": [
         {
-          "id": "video11",
+          "id": "paris-20251203-a",
           "youtubeId": "y9rY9xFVllI",
           "label": "y9rY9xFVllI"
         },
         {
-          "id": "video11f",
+          "id": "paris-20251203-b",
           "youtubeId": "9RbV-I1kFZ0",
           "label": "9RbV-I1kFZ0"
         },
         {
-          "id": "video11c",
+          "id": "paris-20251203-c",
           "youtubeId": "RlvzVy6A-J8",
           "label": "RlvzVy6A-J8"
         },
         {
-          "id": "video11b",
+          "id": "paris-20251203-d",
           "youtubeId": "0zBwf7N048M",
           "label": "0zBwf7N048M"
         },
         {
-          "id": "video11e",
+          "id": "paris-20251203-e",
           "youtubeId": "I3ef3cFMaos",
           "label": "I3ef3cFMaos"
         },
         {
-          "id": "video11d",
+          "id": "paris-20251203-f",
           "youtubeId": "zYfkX_mZVSE",
           "label": "zYfkX_mZVSE"
         }
@@ -1894,7 +1894,7 @@
         {
           "num": 1,
           "title": "It All Fell In The River",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 30,
           "timestamp": "0:30",
           "highlight": true
@@ -1902,7 +1902,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 270,
           "timestamp": "4:30",
           "highlight": true
@@ -1910,7 +1910,7 @@
         {
           "num": 3,
           "title": "Emperor XIII In Shades",
-          "videoId": "video24b",
+          "videoId": "nyc-20251211-b",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -1918,7 +1918,7 @@
         {
           "num": 4,
           "title": "The Rolling Stones",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 893,
           "timestamp": "14:53",
           "highlight": true
@@ -1926,7 +1926,7 @@
         {
           "num": 5,
           "title": "Love Takes Miles",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 1159,
           "timestamp": "19:19",
           "highlight": true
@@ -1934,7 +1934,7 @@
         {
           "num": 6,
           "title": "Drinking Age",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 1412,
           "timestamp": "23:32",
           "highlight": true
@@ -1942,7 +1942,7 @@
         {
           "num": 7,
           "title": "Cancer Of The Skull",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 1752,
           "timestamp": "29:12",
           "highlight": true
@@ -1950,7 +1950,7 @@
         {
           "num": 8,
           "title": "If You Turn Back Now",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 2172,
           "timestamp": "36:12",
           "highlight": true
@@ -1958,7 +1958,7 @@
         {
           "num": 9,
           "title": "Nina + Field Of Cops",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 2553,
           "timestamp": "42:33",
           "highlight": true
@@ -1966,7 +1966,7 @@
         {
           "num": 10,
           "title": "$0",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 2950,
           "timestamp": "49:10",
           "highlight": true
@@ -1974,7 +1974,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 3470,
           "timestamp": "57:50",
           "highlight": true
@@ -1982,7 +1982,7 @@
         {
           "num": 12,
           "title": "Vines",
-          "videoId": "video24",
+          "videoId": "nyc-20251211-a",
           "start": 4205,
           "timestamp": "70:05",
           "highlight": true
@@ -1990,12 +1990,12 @@
       ],
       "videos": [
         {
-          "id": "video24",
+          "id": "nyc-20251211-a",
           "youtubeId": "bhZ_wPz7lV0",
           "label": "bhZ_wPz7lV0"
         },
         {
-          "id": "video24b",
+          "id": "nyc-20251211-b",
           "youtubeId": "fmas_FedwUg",
           "label": "fmas_FedwUg"
         }
@@ -2014,7 +2014,7 @@
         {
           "num": 1,
           "title": "Sandbag",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 40,
           "timestamp": "0:40",
           "highlight": true
@@ -2022,7 +2022,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 233,
           "timestamp": "3:53",
           "highlight": true
@@ -2030,7 +2030,7 @@
         {
           "num": 3,
           "title": "The Rolling Stones",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 565,
           "timestamp": "9:25",
           "highlight": true
@@ -2038,7 +2038,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 818,
           "timestamp": "13:38",
           "highlight": true
@@ -2046,7 +2046,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 1062,
           "timestamp": "17:42",
           "highlight": true
@@ -2054,7 +2054,7 @@
         {
           "num": 6,
           "title": "Emperor XIII In Shades",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 1351,
           "timestamp": "22:31",
           "highlight": true
@@ -2062,7 +2062,7 @@
         {
           "num": 7,
           "title": "Cancer Of The Skull",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 1625,
           "timestamp": "27:05",
           "highlight": true
@@ -2070,7 +2070,7 @@
         {
           "num": 8,
           "title": "If You Turn Back Now",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 2068,
           "timestamp": "34:28",
           "highlight": true
@@ -2078,7 +2078,7 @@
         {
           "num": 9,
           "title": "Nina + Field Of Cops",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 2402,
           "timestamp": "40:02",
           "highlight": true
@@ -2086,7 +2086,7 @@
         {
           "num": 10,
           "title": "$0",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 2822,
           "timestamp": "47:02",
           "highlight": true
@@ -2094,7 +2094,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 3360,
           "timestamp": "56:00",
           "highlight": true
@@ -2102,7 +2102,7 @@
         {
           "num": 12,
           "title": "Where's Your Love Now (cover)",
-          "videoId": "video15",
+          "videoId": "los-angeles-20251213-a",
           "start": 3847,
           "timestamp": "64:07",
           "highlight": true
@@ -2110,7 +2110,7 @@
       ],
       "videos": [
         {
-          "id": "video15",
+          "id": "los-angeles-20251213-a",
           "youtubeId": "X5ltygohFSQ",
           "label": "X5ltygohFSQ"
         }
@@ -2129,7 +2129,7 @@
         {
           "num": 1,
           "title": "It All Fell In The River",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 112,
           "timestamp": "1:52",
           "highlight": true
@@ -2137,7 +2137,7 @@
         {
           "num": 2,
           "title": "We're Thinking The Same Thing",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 378,
           "timestamp": "6:18",
           "highlight": true
@@ -2145,7 +2145,7 @@
         {
           "num": 3,
           "title": "Try As I May",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 580,
           "timestamp": "9:40",
           "highlight": true
@@ -2153,7 +2153,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 920,
           "timestamp": "15:20",
           "highlight": true
@@ -2161,7 +2161,7 @@
         {
           "num": 5,
           "title": "The Rolling Stones",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 1158,
           "timestamp": "19:18",
           "highlight": true
@@ -2169,7 +2169,7 @@
         {
           "num": 6,
           "title": "Sandbag",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 1422,
           "timestamp": "23:42",
           "highlight": true
@@ -2177,7 +2177,7 @@
         {
           "num": 7,
           "title": "If You Turn Back Now",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 1624,
           "timestamp": "27:04",
           "highlight": true
@@ -2185,7 +2185,7 @@
         {
           "num": 8,
           "title": "Drinking Age",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 1942,
           "timestamp": "32:22",
           "highlight": true
@@ -2193,7 +2193,7 @@
         {
           "num": 9,
           "title": "Emperor XIII In Shades",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 2228,
           "timestamp": "37:08",
           "highlight": true
@@ -2201,7 +2201,7 @@
         {
           "num": 10,
           "title": "Nina + Field Of Cops",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 2464,
           "timestamp": "41:04",
           "highlight": true
@@ -2209,7 +2209,7 @@
         {
           "num": 11,
           "title": "$0",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 2882,
           "timestamp": "48:02",
           "highlight": true
@@ -2217,7 +2217,7 @@
         {
           "num": 12,
           "title": "Take It With You",
-          "videoId": "video27",
+          "videoId": "los-angeles-20251214-a",
           "start": 3525,
           "timestamp": "58:45",
           "highlight": true
@@ -2225,7 +2225,7 @@
       ],
       "videos": [
         {
-          "id": "video27",
+          "id": "los-angeles-20251214-a",
           "youtubeId": "6MDWD7XK6tA",
           "label": "6MDWD7XK6tA"
         }
@@ -2244,7 +2244,7 @@
         {
           "num": 1,
           "title": "Serious World",
-          "videoId": "video19c",
+          "videoId": "chicago-20251216-c",
           "start": 3,
           "timestamp": "(video)",
           "highlight": true
@@ -2252,7 +2252,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 214,
           "timestamp": "3:34",
           "highlight": true
@@ -2260,7 +2260,7 @@
         {
           "num": 3,
           "title": "It All Fell In The River",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 524,
           "timestamp": "8:44",
           "highlight": true
@@ -2268,7 +2268,7 @@
         {
           "num": 4,
           "title": "The Rolling Stones",
-          "videoId": "video19a",
+          "videoId": "chicago-20251216-a",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -2276,7 +2276,7 @@
         {
           "num": 5,
           "title": "Sandbag",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 1034,
           "timestamp": "17:14",
           "highlight": true
@@ -2284,7 +2284,7 @@
         {
           "num": 6,
           "title": "Love Takes Miles",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 1230,
           "timestamp": "20:30",
           "highlight": true
@@ -2292,7 +2292,7 @@
         {
           "num": 7,
           "title": "Drinking Age",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 1470,
           "timestamp": "24:30",
           "highlight": true
@@ -2300,7 +2300,7 @@
         {
           "num": 8,
           "title": "Emperor XIII In Shades",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 1756,
           "timestamp": "29:16",
           "highlight": true
@@ -2308,7 +2308,7 @@
         {
           "num": 9,
           "title": "If You Turn Back Now",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 2007,
           "timestamp": "33:27",
           "highlight": true
@@ -2316,7 +2316,7 @@
         {
           "num": 10,
           "title": "Nina + Field Of Cops",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 2380,
           "timestamp": "39:40",
           "highlight": true
@@ -2324,7 +2324,7 @@
         {
           "num": 11,
           "title": "$0",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 2747,
           "timestamp": "45:47",
           "highlight": true
@@ -2332,7 +2332,7 @@
         {
           "num": 12,
           "title": "Cancer Of The Skull",
-          "videoId": "video19b",
+          "videoId": "chicago-20251216-b",
           "start": 3399,
           "timestamp": "56:39",
           "highlight": true
@@ -2340,17 +2340,17 @@
       ],
       "videos": [
         {
-          "id": "video19a",
+          "id": "chicago-20251216-a",
           "youtubeId": "Xg08_Of-_-4",
           "label": "Xg08_Of-_-4"
         },
         {
-          "id": "video19b",
+          "id": "chicago-20251216-b",
           "youtubeId": "Hbsu-CdN7Wg",
           "label": "Hbsu-CdN7Wg"
         },
         {
-          "id": "video19c",
+          "id": "chicago-20251216-c",
           "youtubeId": "nYvNAALOXUo",
           "label": "nYvNAALOXUo"
         }
@@ -2369,7 +2369,7 @@
         {
           "num": 1,
           "title": "Sandbag",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 20,
           "timestamp": "0:20",
           "highlight": true
@@ -2377,7 +2377,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 200,
           "timestamp": "3:20",
           "highlight": true
@@ -2385,7 +2385,7 @@
         {
           "num": 3,
           "title": "Emperor XIII In Shades",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 522,
           "timestamp": "8:42",
           "highlight": true
@@ -2393,7 +2393,7 @@
         {
           "num": 4,
           "title": "The Rolling Stones",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 801,
           "timestamp": "13:21",
           "highlight": true
@@ -2401,7 +2401,7 @@
         {
           "num": 5,
           "title": "Love Takes Miles",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 1059,
           "timestamp": "17:39",
           "highlight": true
@@ -2409,7 +2409,7 @@
         {
           "num": 6,
           "title": "Drinking Age",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 1296,
           "timestamp": "21:36",
           "highlight": true
@@ -2417,7 +2417,7 @@
         {
           "num": 7,
           "title": "Its Been Waited For",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 1579,
           "timestamp": "26:19",
           "highlight": true
@@ -2425,7 +2425,7 @@
         {
           "num": 8,
           "title": "LSD (video)",
-          "videoId": "video14b",
+          "videoId": "chicago-20251217-b",
           "start": 0,
           "timestamp": "00:00",
           "highlight": true
@@ -2433,7 +2433,7 @@
         {
           "num": 9,
           "title": "Nina + Field Of Cops",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 2117,
           "timestamp": "35:17",
           "highlight": true
@@ -2441,7 +2441,7 @@
         {
           "num": 10,
           "title": "$0",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 2499,
           "timestamp": "41:39",
           "highlight": true
@@ -2449,7 +2449,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 3065,
           "timestamp": "51:05",
           "highlight": true
@@ -2457,7 +2457,7 @@
         {
           "num": 12,
           "title": "If You Turn Back Now",
-          "videoId": "video14",
+          "videoId": "chicago-20251217-a",
           "start": 3490,
           "timestamp": "58:10",
           "highlight": true
@@ -2465,12 +2465,12 @@
       ],
       "videos": [
         {
-          "id": "video14",
+          "id": "chicago-20251217-a",
           "youtubeId": "qLT-a05PJDU",
           "label": "qLT-a05PJDU"
         },
         {
-          "id": "video14b",
+          "id": "chicago-20251217-b",
           "youtubeId": "CTtD4QRriiU",
           "label": "CTtD4QRriiU"
         }
@@ -2489,7 +2489,7 @@
       {
         "num": 1,
         "title": "If You Turn Back Now",
-        "videoId": "video28",
+        "videoId": "los-angeles-20260110-a",
         "start": 0,
         "timestamp": "(video)",
         "highlight": true
@@ -2497,7 +2497,7 @@
     ],
     "videos": [
       {
-        "id": "video28",
+        "id": "los-angeles-20260110-a",
         "label": "@junimarin",
         "platform": "tiktok",
         "tiktokId": "7594225985487228190"
@@ -2523,7 +2523,7 @@
           "num": 2,
           "title": "The Rolling Stones (partial)",
           "highlight": true,
-          "videoId": "video29b",
+          "videoId": "queens-20260119-a",
           "start": 0,
           "timestamp": "(video)"
         },
@@ -2541,7 +2541,7 @@
           "num": 5,
           "title": "Love Takes Miles (partial)",
           "highlight": true,
-          "videoId": "video29c",
+          "videoId": "queens-20260119-b",
           "start": 0,
           "timestamp": "(video)"
         },
@@ -2558,13 +2558,13 @@
       ],
       "videos": [       
         {
-          "id": "video29b",
+          "id": "queens-20260119-a",
           "label": "@colleedee",
           "platform": "tiktok",
           "tiktokId": "7597490236230241550"
         },
         {
-          "id": "video29c",
+          "id": "queens-20260119-b",
           "label": "@mollsyvl",
           "platform": "tiktok",
           "tiktokId": "7597477870688046367"
@@ -2584,7 +2584,7 @@
       {
         "num": 1,
         "title": "It All Fell in the River",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 0,
         "timestamp": "0:00",
         "highlight": true
@@ -2592,7 +2592,7 @@
       {
         "num": 2,
         "title": "Try as I May",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 282,
         "timestamp": "4:42",
         "highlight": true
@@ -2600,7 +2600,7 @@
       {
         "num": 3,
         "title": "Emperor XIII in Shades",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 614,
         "timestamp": "10:14",
         "highlight": true
@@ -2608,7 +2608,7 @@
       {
         "num": 4,
         "title": "The Rolling Stones",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 859,
         "timestamp": "14:19",
         "highlight": true
@@ -2616,7 +2616,7 @@
       {
         "num": 5,
         "title": "Love Takes Miles",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 1128,
         "timestamp": "18:48",
         "highlight": true
@@ -2624,7 +2624,7 @@
       {
         "num": 6,
         "title": "Drinking Age",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 1374,
         "timestamp": "22:54",
         "highlight": true
@@ -2632,7 +2632,7 @@
       {
         "num": 7,
         "title": "If You Turn Back Now",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 1657,
         "timestamp": "27:37",
         "highlight": true
@@ -2640,7 +2640,7 @@
       {
         "num": 8,
         "title": "Ben (debut)",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 1969,
         "timestamp": "32:49",
         "highlight": true
@@ -2648,7 +2648,7 @@
       {
         "num": 9,
         "title": "Nina + Field of Cops",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 2046,
         "timestamp": "34:06",
         "highlight": true
@@ -2656,7 +2656,7 @@
       {
         "num": 10,
         "title": "0$",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 2432,
         "timestamp": "(video)",
         "highlight": true
@@ -2664,7 +2664,7 @@
       {
         "num": 11,
         "title": "Take It With You",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 2967,
         "timestamp": "49:27",
         "highlight": true
@@ -2672,7 +2672,7 @@
       {
         "num": 12,
         "title": "Encore - Ben (reprise), Sandbag",
-        "videoId": "video30",
+        "videoId": "auckland-20260204-a",
         "start": 3267,
         "timestamp": "54:27",
         "highlight": true
@@ -2680,7 +2680,7 @@
     ],
     "videos": [
       {
-        "id": "video30",
+        "id": "auckland-20260204-a",
         "youtubeId": "agHrRJMSxoA",
         "label": "agHrRJMSxoA"
       }
@@ -2700,7 +2700,7 @@
         "num": 1,
         "title": "It All Fell In The River",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 25,
         "timestamp": "0:25"
       },
@@ -2708,7 +2708,7 @@
         "num": 2,
         "title": "Try As I May",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 360,
         "timestamp": "6:00"
       },
@@ -2716,7 +2716,7 @@
         "num": 3,
         "title": "Come Now (debut)",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 740,
         "timestamp": "12:20"
       },
@@ -2724,7 +2724,7 @@
         "num": 4,
         "title": "Emperor Xiii In Shades",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 1065,
         "timestamp": "17:45"
       },
@@ -2732,7 +2732,7 @@
         "num": 5,
         "title": "The Rolling Stones",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 1380,
         "timestamp": "23:00"
       },
@@ -2740,7 +2740,7 @@
         "num": 6,
         "title": "Love Takes Miles",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 1650,
         "timestamp": "27:30"
       },
@@ -2748,7 +2748,7 @@
         "num": 7,
         "title": "Bottle Flip",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 1910,
         "timestamp": "31:50"
       },
@@ -2756,7 +2756,7 @@
         "num": 8,
         "title": "Drinking Age",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 1945,
         "timestamp": "32:25"
       },
@@ -2764,7 +2764,7 @@
         "num": 9,
         "title": "I Don't Wanna (new version)",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 2230,
         "timestamp": "37:10"
       },
@@ -2772,7 +2772,7 @@
         "num": 10,
         "title": "Nina + Field Of Cops",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 2540,
         "timestamp": "42:20"
       },
@@ -2780,7 +2780,7 @@
         "num": 11,
         "title": "$0",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 2968,
         "timestamp": "49:28"
       },
@@ -2788,14 +2788,14 @@
         "num": 12,
         "title": "If You Turn Back Now (partial)",
         "highlight": true,
-        "videoId": "video31",
+        "videoId": "melbourne-20260209-a",
         "start": 3579,
         "timestamp": "59:39"
       }
     ],
     "videos": [
       {
-        "id": "video31",
+        "id": "melbourne-20260209-a",
         "label": "i5yQANzEHRg",
         "youtubeId": "i5yQANzEHRg"
       }
@@ -2816,7 +2816,7 @@
         "num": 1,
         "title": "It All Fell In The River",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 76,
         "timestamp": "(video)"
       },
@@ -2824,7 +2824,7 @@
         "num": 2,
         "title": "Try As I May",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 396,
         "timestamp": "(video)"
       },
@@ -2832,7 +2832,7 @@
         "num": 3,
         "title": "Emperor XIII In Shades",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 736,
         "timestamp": "(video)"
       },
@@ -2840,7 +2840,7 @@
         "num": 4,
         "title": "The Rolling Stones",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 1000,
         "timestamp": "(video)"
       },
@@ -2848,7 +2848,7 @@
         "num": 5,
         "title": "Love Takes Miles",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 1264,
         "timestamp": "(video)"
       },
@@ -2856,7 +2856,7 @@
         "num": 6,
         "title": "Drinking Age",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 1512,
         "timestamp": "(video)"
       },
@@ -2864,7 +2864,7 @@
         "num": 7,
         "title": "Cancer Of The Skull",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 1830,
         "timestamp": "(video)"
       },
@@ -2872,7 +2872,7 @@
         "num": 8,
         "title": "Sandbag",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 2275,
         "timestamp": "(video)"
       },
@@ -2880,7 +2880,7 @@
         "num": 9,
         "title": "Nina + Field Of Cops",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 2488,
         "timestamp": "(video)"
       },
@@ -2888,7 +2888,7 @@
         "num": 10,
         "title": "$0",
         "highlight": true,
-        "videoId": "video32",
+        "videoId": "sydney-20260216-a",
         "start": 2890,
         "timestamp": "(video)"
       },
@@ -2896,19 +2896,19 @@
         "num": 11,
         "title": "Take It With You",
         "highlight": true,
-        "videoId": "video33",
+        "videoId": "sydney-20260216-b",
         "start": 3635,
         "timestamp": "60:35"
       }
     ],
     "videos": [
       {
-        "id": "video32",
+        "id": "sydney-20260216-a",
         "label": "zGx5x9SLMUA",
         "youtubeId": "zGx5x9SLMUA"
       },
       {
-        "id": "video33",
+        "id": "sydney-20260216-b",
         "label": "Q05wJq92tFc",
         "youtubeId": "Q05wJq92tFc"
       }
@@ -2928,7 +2928,7 @@
       {
         "num": 1,
         "title": "It All Fell in the River",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 0,
         "timestamp": "0:00",
         "highlight": true
@@ -2936,7 +2936,7 @@
       {
         "num": 2,
         "title": "Try as I May",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 402,
         "timestamp": "6:42",
         "highlight": true
@@ -2944,7 +2944,7 @@
       {
         "num": 3,
         "title": "Emperor in Shades",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 800,
         "timestamp": "13:20",
         "highlight": true
@@ -2952,7 +2952,7 @@
       {
         "num": 4,
         "title": "The Rolling Stones",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 1141,
         "timestamp": "19:01",
         "highlight": true
@@ -2960,7 +2960,7 @@
       {
         "num": 5,
         "title": "Love Takes Miles",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 1437,
         "timestamp": "23:57",
         "highlight": true
@@ -2968,7 +2968,7 @@
       {
         "num": 6,
         "title": "Drinking Age",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 1748,
         "timestamp": "29:08",
         "highlight": true
@@ -2976,7 +2976,7 @@
       {
         "num": 7,
         "title": "We’re Thinking the Same Thing",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 2080,
         "timestamp": "34:40",
         "highlight": true
@@ -2984,7 +2984,7 @@
       {
         "num": 8,
         "title": "Nina + Field of Cops",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 2328,
         "timestamp": "38:48",
         "highlight": true
@@ -2992,7 +2992,7 @@
       {
         "num": 9,
         "title": "$0",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 2791,
         "timestamp": "46:31",
         "highlight": true
@@ -3000,7 +3000,7 @@
       {
         "num": 10,
         "title": "Take it With You",
-        "videoId": "video34",
+        "videoId": "sapporo-20260225-a",
         "start": 3428,
         "timestamp": "57:08",
         "highlight": true
@@ -3008,7 +3008,7 @@
     ],
     "videos": [
       {
-        "id": "video34",
+        "id": "sapporo-20260225-a",
         "youtubeId": "Phu1h4o04S0",
         "label": "Phu1h4o04S0"
       }
@@ -3027,7 +3027,7 @@
       {
         "num": 1,
         "title": "She’s Just Been Born",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 0,
         "timestamp": "0:00",
         "highlight": true
@@ -3035,7 +3035,7 @@
       {
         "num": 2,
         "title": "Try as I May",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 337,
         "timestamp": "5:37",
         "highlight": true
@@ -3043,7 +3043,7 @@
       {
         "num": 3,
         "title": "It All Fell in the River",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 692,
         "timestamp": "11:32",
         "highlight": true
@@ -3051,7 +3051,7 @@
       {
         "num": 4,
         "title": "Emperor in Shades",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 1030,
         "timestamp": "17:10",
         "highlight": true
@@ -3059,7 +3059,7 @@
       {
         "num": 5,
         "title": "The Rolling Stones",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 1313,
         "timestamp": "21:53",
         "highlight": true
@@ -3067,7 +3067,7 @@
       {
         "num": 6,
         "title": "Love Takes Miles",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 1593,
         "timestamp": "26:33",
         "highlight": true
@@ -3075,7 +3075,7 @@
       {
         "num": 7,
         "title": "Drinking Age",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 1867,
         "timestamp": "31:07",
         "highlight": true
@@ -3083,7 +3083,7 @@
       {
         "num": 8,
         "title": "Cancer of the Skull",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 2197,
         "timestamp": "36:37",
         "highlight": true
@@ -3091,7 +3091,7 @@
       {
         "num": 9,
         "title": "Nina + Field of Cops",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 2661,
         "timestamp": "44:21",
         "highlight": true
@@ -3099,7 +3099,7 @@
       {
         "num": 10,
         "title": "$0",
-        "videoId": "video35",
+        "videoId": "tokyo-20260226-a",
         "start": 3146,
         "timestamp": "52:26",
         "highlight": true
@@ -3112,7 +3112,7 @@
     ],
     "videos": [
       {
-        "id": "video35",
+        "id": "tokyo-20260226-a",
         "youtubeId": "eTYlXDQw9yU",
         "label": "eTYlXDQw9yU"
       }
@@ -3131,7 +3131,7 @@
         {
           "num": 1,
           "title": "She’s Just Been Born",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 40,
           "timestamp": "0:40",
           "highlight": true
@@ -3139,7 +3139,7 @@
         {
           "num": 2,
           "title": "Try As I May",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 440,
           "timestamp": "7:20",
           "highlight": true
@@ -3147,7 +3147,7 @@
         {
           "num": 3,
           "title": "Emperor XIII in Shades",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 808,
           "timestamp": "13:28",
           "highlight": true
@@ -3155,7 +3155,7 @@
         {
           "num": 4,
           "title": "The Rolling Stones",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 1080,
           "timestamp": "18:00",
           "highlight": true
@@ -3163,7 +3163,7 @@
         {
           "num": 5,
           "title": "Love Takes Miles",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 1375,
           "timestamp": "22:55",
           "highlight": true
@@ -3171,7 +3171,7 @@
         {
           "num": 6,
           "title": "Drinking Age",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 1623,
           "timestamp": "27:03",
           "highlight": true
@@ -3179,7 +3179,7 @@
         {
           "num": 7,
           "title": "If You Turn Back Now",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 1970,
           "timestamp": "32:50",
           "highlight": true
@@ -3187,7 +3187,7 @@
         {
           "num": 8,
           "title": "We’re Thinking the Same Thing",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 2365,
           "timestamp": "39:25",
           "highlight": true
@@ -3195,7 +3195,7 @@
         {
           "num": 9,
           "title": "Nina + Field of Cops",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 2604,
           "timestamp": "43:24",
           "highlight": true
@@ -3203,7 +3203,7 @@
         {
           "num": 10,
           "title": "$0",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 3045,
           "timestamp": "50:45",
           "highlight": true
@@ -3211,7 +3211,7 @@
         {
           "num": 11,
           "title": "Take It With You",
-          "videoId": "video36",
+          "videoId": "sao-paulo-20260524-a",
           "start": 3655,
           "timestamp": "60:55",
           "highlight": true
@@ -3219,7 +3219,7 @@
       ],
       "videos": [
         {
-          "id": "video36",
+          "id": "sao-paulo-20260524-a",
           "youtubeId": "8vwhztqGCL8",
           "label": "8vwhztqGCL8"
         }
@@ -3248,7 +3248,7 @@
         {
           "num": 3,
           "title": "The Rolling Stones",
-          "videoId": "video37",
+          "videoId": "barcelona-20260604-a",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -3256,7 +3256,7 @@
         {
           "num": 4,
           "title": "Love Takes Miles",
-          "videoId": "video37b",
+          "videoId": "barcelona-20260604-b",
           "partial": true,
           "start": 0,
           "timestamp": "(video)",
@@ -3265,7 +3265,7 @@
         {
           "num": 5,
           "title": "Drinking Age",
-          "videoId": "video37c",
+          "videoId": "barcelona-20260604-c",
           "start": 0,
           "timestamp": "(video)",
           "highlight": true
@@ -3298,17 +3298,17 @@
       ],
       "videos": [
         {
-          "id": "video37",
+          "id": "barcelona-20260604-a",
           "youtubeId": "wAYvQ0kBs4s",
           "label": "wAYvQ0kBs4s"
         },
         {
-          "id": "video37b",
+          "id": "barcelona-20260604-b",
           "youtubeId": "2InedHZdJeM",
           "label": "2InedHZdJeM"
         },
         {
-          "id": "video37c",
+          "id": "barcelona-20260604-c",
           "youtubeId": "leo92nDdEKQ",
           "label": "leo92nDdEKQ"
         }
