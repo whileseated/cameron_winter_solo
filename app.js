@@ -21,6 +21,7 @@ const players = {};
 const tiktokPlayers = {}; // TikTok iframe references
 const tiktokState = {}; // TikTok player state tracking {videoId: {currentTime, duration, state}}
 const tiktokPrimed = new Set(); // TikTok players woken up by the autoplay priming pass
+const twitterPlayers = {}; // <video> element references for X/Twitter clips
 let youtubeReady = false;
 let currentlyPlayingId = null;
 let currentlyPlayingLi = null;
@@ -400,6 +401,16 @@ function createCardElement(dateId, perfData) {
       placeholder.setAttribute('data-tiktok-id', video.tiktokId);
       placeholder.setAttribute('data-platform', 'tiktok');
       placeholder.classList.add('video-placeholder-tiktok');
+    } else if (platform === 'twitter') {
+      // X/Twitter clip. X publishes no player API, so the blockquote embed can't be
+      // seeked or started from a setlist click. Instead the entry carries the direct
+      // MP4 from the syndication endpoint and plays in a native <video>, which gives
+      // full parity with YouTube. The label still links back to the post for credit.
+      label.innerHTML = `<a href="https://x.com/${video.label.replace('@', '')}/status/${video.tweetId}" target="_blank" rel="noopener">${video.label}</a>`;
+      placeholder.setAttribute('data-video-url', video.videoUrl);
+      placeholder.setAttribute('data-post-url', `https://x.com/${video.label.replace('@', '')}/status/${video.tweetId}`);
+      placeholder.setAttribute('data-platform', 'twitter');
+      if (video.portrait !== false) placeholder.classList.add('video-placeholder-tiktok');
     } else {
       // YouTube video (default)
       label.innerHTML = `<a href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank" rel="noopener">${video.label}</a>`;
@@ -797,6 +808,7 @@ function destroyPlayer(elementId) {
 function destroyAllPlayers() {
   Object.keys(players).forEach(destroyPlayer);
   Object.keys(tiktokPlayers).forEach(destroyTikTokPlayer);
+  Object.keys(twitterPlayers).forEach(destroyTwitterPlayer);
 }
 
 // TikTok player functions
@@ -952,7 +964,91 @@ function startTikTokProgressWatcher(elementId) {
   }, POLL_INTERVAL_MS);
 }
 
-// Initialize all video players for a card (YouTube and TikTok)
+// X/Twitter player functions
+//
+// Unlike YouTube and TikTok these are plain <video> elements, so there is no
+// cross-origin handshake: the element is controllable the instant it exists and
+// needs no autoplay priming pass. State is read straight off the element rather
+// than mirrored into a side table.
+function initTwitterPlayer(elementId, videoUrl, postUrl) {
+  if (twitterPlayers[elementId]) return;
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  const video = document.createElement('video');
+  video.src = videoUrl;
+  video.controls = true;
+  video.preload = 'metadata';
+  video.playsInline = true;
+  video.className = el.className;
+  video.style.width = '100%';
+  video.style.border = '1px solid var(--border)';
+  video.style.borderRadius = '5px';
+  video.style.display = 'block';
+  video.style.background = 'var(--bg)';
+
+  video.addEventListener('loadedmetadata', () => {
+    playersReady.add(elementId);
+    if (!isMobile()) setTimeout(draw, 100);
+    tryPlayPendingTrack();
+  });
+
+  video.addEventListener('play', () => {
+    startTwitterProgressWatcher(elementId);
+    syncPlayingFromTime(elementId, video.currentTime);
+  });
+
+  ['pause', 'ended'].forEach(evt => {
+    video.addEventListener(evt, () => {
+      clearProgressWatcher(elementId);
+      if (currentlyPlayingLi && currentlyPlayingId === elementId) {
+        currentlyPlayingLi.classList.remove("playing");
+        currentlyPlayingLi = null;
+        currentlyPlayingId = null;
+        updatePlayingConnector();
+      }
+    });
+  });
+
+  // These MP4 URLs are undocumented and can rotate without notice. Surface a dead
+  // link instead of leaving an invisible broken element in the card.
+  video.addEventListener('error', () => {
+    const note = document.createElement('div');
+    note.className = 'video-error';
+    note.innerHTML = `Clip unavailable — <a href="${postUrl}" target="_blank" rel="noopener">view on X</a>`;
+    if (video.parentNode) video.replaceWith(note);
+    delete twitterPlayers[elementId];
+    playersReady.delete(elementId);
+  });
+
+  el.replaceWith(video);
+  video.id = elementId;
+
+  twitterPlayers[elementId] = video;
+}
+
+function destroyTwitterPlayer(elementId) {
+  const video = twitterPlayers[elementId];
+  if (!video) return;
+  clearProgressWatcher(elementId);
+  video.pause();
+  video.removeAttribute('src');
+  video.load(); // drop the buffered data so the element can be garbage collected
+  delete twitterPlayers[elementId];
+}
+
+function startTwitterProgressWatcher(elementId) {
+  Object.keys(progressIntervals).forEach(clearProgressWatcher);
+
+  const video = twitterPlayers[elementId];
+  if (!video || !videoTracks[elementId]) return;
+  progressIntervals[elementId] = setInterval(() => {
+    if (video.paused || video.ended) return;
+    syncPlayingFromTime(elementId, video.currentTime);
+  }, POLL_INTERVAL_MS);
+}
+
+// Initialize all video players for a card (YouTube, TikTok and X)
 function initCardPlayers(card) {
   // Initialize YouTube players
   if (youtubeReady) {
@@ -972,12 +1068,25 @@ function initCardPlayers(card) {
       initTikTokPlayer(placeholder.id, tiktokId);
     }
   });
+
+  // Initialize X/Twitter players (native <video>, no API to wait for)
+  const twPlaceholders = card.querySelectorAll(".video-placeholder[data-video-url]");
+  twPlaceholders.forEach(placeholder => {
+    if (placeholder.id) {
+      initTwitterPlayer(
+        placeholder.id,
+        placeholder.getAttribute('data-video-url'),
+        placeholder.getAttribute('data-post-url')
+      );
+    }
+  });
 }
 
 // Platform-agnostic player functions
 function getPlayerPlatform(elementId) {
   if (players[elementId]) return 'youtube';
   if (tiktokPlayers[elementId]) return 'tiktok';
+  if (twitterPlayers[elementId]) return 'twitter';
   return null;
 }
 
@@ -988,6 +1097,8 @@ function playerSeekTo(elementId, time) {
     if (player && player.seekTo) player.seekTo(time, true);
   } else if (platform === 'tiktok') {
     tiktokSeekTo(elementId, time);
+  } else if (platform === 'twitter') {
+    twitterPlayers[elementId].currentTime = time;
   }
 }
 
@@ -998,6 +1109,9 @@ function playerPlay(elementId) {
     if (player && player.playVideo) player.playVideo();
   } else if (platform === 'tiktok') {
     tiktokPlay(elementId);
+  } else if (platform === 'twitter') {
+    // play() rejects if the browser blocks it; swallow so one clip can't break the handler
+    twitterPlayers[elementId].play().catch(() => {});
   }
 }
 
@@ -1008,6 +1122,8 @@ function playerPause(elementId) {
     if (player && player.pauseVideo) player.pauseVideo();
   } else if (platform === 'tiktok') {
     tiktokPause(elementId);
+  } else if (platform === 'twitter') {
+    twitterPlayers[elementId].pause();
   }
 }
 
@@ -1018,6 +1134,13 @@ function playerGetState(elementId) {
     return player && player.getPlayerState ? player.getPlayerState() : -1;
   } else if (platform === 'tiktok') {
     return tiktokState[elementId]?.state ?? -1;
+  } else if (platform === 'twitter') {
+    // Map HTMLMediaElement onto the YouTube state codes the callers expect:
+    // -1=init, 0=ended, 1=playing, 2=paused
+    const video = twitterPlayers[elementId];
+    if (video.ended) return 0;
+    if (video.paused) return 2;
+    return 1;
   }
   return -1;
 }
@@ -1029,6 +1152,8 @@ function playerGetCurrentTime(elementId) {
     return player && player.getCurrentTime ? player.getCurrentTime() : 0;
   } else if (platform === 'tiktok') {
     return tiktokState[elementId]?.currentTime ?? 0;
+  } else if (platform === 'twitter') {
+    return twitterPlayers[elementId].currentTime;
   }
   return 0;
 }

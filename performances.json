@@ -3351,6 +3351,71 @@
           "tiktokId": "7648784585895038230"
         }
       ]
+    },
+    "20260922": {
+      "date": "20260922",
+      "venue": "BJ's Lounge",
+      "city": "New Orleans",
+      "state": "LA",
+      "country": "USA",
+      "complete": false,
+      "mediaType": "video",
+      "disabled": false,
+      "setlist": [
+        {
+          "num": 1,
+          "title": "Love Takes Miles",
+          "videoId": "new-orleans-20260922-a",
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
+        },
+        {
+          "num": 2,
+          "title": "Emperor XIII In Shades",
+          "highlight": false
+        },
+        {
+          "num": 3,
+          "title": "I Don't Wanna",
+          "highlight": false
+        },
+        {
+          "num": 4,
+          "title": "Unknown (\"slowly into town\")",
+          "videoId": "new-orleans-20260922-b",
+          "partial": true,
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
+        },
+        {
+          "num": 5,
+          "title": "Unknown (\"I suppose\")",
+          "highlight": false
+        },
+        {
+          "num": 6,
+          "title": "Try As I May",
+          "highlight": false
+        }
+      ],
+      "videos": [
+        {
+          "id": "new-orleans-20260922-a",
+          "label": "@ocksportello",
+          "platform": "twitter",
+          "tweetId": "2102608568662835222",
+          "videoUrl": "https://video.twimg.com/amplify_video/2102608298767695872/vid/avc1/720x1280/NeDluYbRjJnuCZ9S.mp4"
+        },
+        {
+          "id": "new-orleans-20260922-b",
+          "label": "@acervogeese",
+          "platform": "twitter",
+          "tweetId": "2102816558686826647",
+          "videoUrl": "https://video.twimg.com/amplify_video/2102816531461615617/vid/avc1/720x1280/ON4cTrT5RxL-fhuY.mp4"
+        }
+      ]
     }
   }
 }
