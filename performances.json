@@ -3224,6 +3224,95 @@
           "label": "8vwhztqGCL8"
         }
       ]
+    },
+    "20260604": {
+      "date": "20260604",
+      "venue": "Auditori Rockdelux at Parc del Fòrum",
+      "city": "Barcelona",
+      "state": "",
+      "country": "Spain",
+      "complete": false,
+      "mediaType": "video",
+      "disabled": false,
+      "setlist": [
+        {
+          "num": 1,
+          "title": "Try As I May",
+          "highlight": false
+        },
+        {
+          "num": 2,
+          "title": "Emperor XIII In Shades",
+          "highlight": false
+        },
+        {
+          "num": 3,
+          "title": "The Rolling Stones",
+          "videoId": "video37",
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
+        },
+        {
+          "num": 4,
+          "title": "Love Takes Miles",
+          "videoId": "video37b",
+          "partial": true,
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
+        },
+        {
+          "num": 5,
+          "title": "Drinking Age",
+          "videoId": "video37c",
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
+        },
+        {
+          "num": 6,
+          "title": "Cancer Of The Skull",
+          "highlight": false
+        },
+        {
+          "num": 7,
+          "title": "If You Turn Back Now",
+          "highlight": false
+        },
+        {
+          "num": 8,
+          "title": "Nina + Field Of Cops",
+          "highlight": false
+        },
+        {
+          "num": 9,
+          "title": "$0",
+          "highlight": false
+        },
+        {
+          "num": 10,
+          "title": "Take It With You",
+          "highlight": false
+        }
+      ],
+      "videos": [
+        {
+          "id": "video37",
+          "youtubeId": "wAYvQ0kBs4s",
+          "label": "wAYvQ0kBs4s"
+        },
+        {
+          "id": "video37b",
+          "youtubeId": "2InedHZdJeM",
+          "label": "2InedHZdJeM"
+        },
+        {
+          "id": "video37c",
+          "youtubeId": "leo92nDdEKQ",
+          "label": "leo92nDdEKQ"
+        }
+      ]
     }
   }
 }
