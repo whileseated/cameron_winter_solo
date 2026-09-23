@@ -3295,12 +3295,19 @@
         {
           "num": 9,
           "title": "$0",
-          "highlight": false
+          "videoId": "barcelona-20260604-f",
+          "partial": true,
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
         },
         {
           "num": 10,
           "title": "Take It With You",
-          "highlight": false
+          "videoId": "barcelona-20260604-g",
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
         }
       ],
       "videos": [
@@ -3330,6 +3337,18 @@
           "label": "@celia.ng_",
           "platform": "tiktok",
           "tiktokId": "7649117440437210390"
+        },
+        {
+          "id": "barcelona-20260604-f",
+          "label": "@tedhatley",
+          "platform": "tiktok",
+          "tiktokId": "7647586323511004438"
+        },
+        {
+          "id": "barcelona-20260604-g",
+          "label": "@tedhatley",
+          "platform": "tiktok",
+          "tiktokId": "7648784585895038230"
         }
       ]
     }
