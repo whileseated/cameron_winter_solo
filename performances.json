@@ -3238,7 +3238,11 @@
         {
           "num": 1,
           "title": "Try As I May",
-          "highlight": false
+          "videoId": "barcelona-20260604-e",
+          "partial": true,
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
         },
         {
           "num": 2,
@@ -3278,7 +3282,10 @@
         {
           "num": 7,
           "title": "If You Turn Back Now",
-          "highlight": false
+          "videoId": "barcelona-20260604-d",
+          "start": 0,
+          "timestamp": "(video)",
+          "highlight": true
         },
         {
           "num": 8,
@@ -3311,6 +3318,18 @@
           "id": "barcelona-20260604-c",
           "youtubeId": "leo92nDdEKQ",
           "label": "leo92nDdEKQ"
+        },
+        {
+          "id": "barcelona-20260604-d",
+          "label": "@tedhatley",
+          "platform": "tiktok",
+          "tiktokId": "7647668658625465622"
+        },
+        {
+          "id": "barcelona-20260604-e",
+          "label": "@celia.ng_",
+          "platform": "tiktok",
+          "tiktokId": "7649117440437210390"
         }
       ]
     }
